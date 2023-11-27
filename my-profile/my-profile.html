@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <!-- Bootstrap CSS -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+            <script src="static/inventory.js"></script>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/my-profile.css"> <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="static/payment.css"> <!-- Link to your custom CSS file -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+
+<script src="static/forgotpassword.js"></script>
+        <script src="static/register.js"></script>
+        <script src="static/sendemail.js"></script>
+            <script src="static/my-proile.js"></script>
+                <script src="static/payment.js"></script>
+                    <script src="static/states-city-data.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
+    <!-- Your jumbotron content goes here -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <div class="circular-logo">
+                     <img src="static/images/logo.png" alt="Your Logo" width="120" height="120">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation" onclick="toggleLoginButton()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="contactUsBar" class="contact-us-bar" onclick="toggleContactForm()">
+              <img src="https://www.improvedcontactform.com/images/email.png" alt="Email Icon" class="email-icon">
+              <span>Contact Us</span>
+            </div>
+<div id="contactForm" class="contact-form">
+  <h2>Write us a message..✏️</h2>
+  <form  id="contactFormInner" onsubmit="submitForm(event)">
+      <div class="close-button" onclick="closeForm()">&times;</div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="cfname" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="cfemail" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="cfphone" name="phone" placeholder="Your Phone (optional)" >
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+
+        <button type="submit" >Submit</button>
+  </form>
+</div>
+<div id="successMessage" class="success-message">
+  <p>Thanks for reaching out! We'll get back to you soon.</p>
+</div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active ">
+                    <a class="nav-link " href="#" > 🏠 Home </a>
+                    <span class="stylish-header"></span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../market/market.html"> 🏢 Market Trend</a>
+
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../about-us/index.html">❓About Us</a>
+                </li>
+            </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item2 text-center">
+                    <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn2" data-target="#signInModal">Get Started</a>
+            </li>
+        </ul>
+
+    </div>
+
+           <ul class="navbar-nav ml-auto" id="loginButtonContainer">
+            <li class="nav-item text-center">
+                  <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms4()" id ="loginButton" data-target="#signInModal"> 👤Log In</a>
+           </li>
+            <li class="nav-item text-center" id="userProfileDropdown" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-light mx-2 dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            👤 Hi, <span id="userName"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                   </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    function submitForm(event) {
+  event.preventDefault();
+  // You can add code here to send the form data to your email or server
+  showSuccessMessage();
+}
+
+function showSuccessMessage() {
+  const successMessage = document.getElementById('successMessage');
+  const formContainer = document.getElementById('contactForm');
+
+  successMessage.style.display = 'block';
+
+  setTimeout(() => {
+    successMessage.style.display = 'none';
+  }, 4000); // Hide the success message after 3 seconds
+
+  setTimeout(() => {
+    formContainer.style.display = 'none';
+  }, 300); // Hide the form after 1 second
+}
+function closeForm() {
+  const formContainer = document.getElementById('contactForm');
+  formContainer.style.display = 'none';
+}
+
+
+
+    function toggleContactForm() {
+  var contactForm = document.getElementById("contactForm");
+  contactForm.style.display = (contactForm.style.display === "none" || contactForm.style.display === "") ? "block" : "none";
+}
+    function toggleLoginButton() {
+        var loginButtonContainer = document.getElementById("loginButtonContainer");
+        if (loginButtonContainer.style.display === "none") {
+            loginButtonContainer.style.display = "block";
+        } else {
+            loginButtonContainer.style.display = "none";
+        }
+    }
+</script>
+<h2 class="profile-page-title"><span class="profile-pattern"></span>Farmer Profile</h2>
+
+<div class="container profile-container">
+
+  <div class="row g-0">
+
+    <div class="col-md-6">
+      <div class="card profile-card">
+        <div class="cover-image-container">
+          <img id="coverImage" src="static/images/farm1.png" alt="Cover Image" class="card-img-top cover-image">
+          <i class="fas fa-edit cover-edit-icon" onclick="editCoverImage()"></i>
+        </div>
+        <div class="profile-image-container">
+          <img id="profileImage" src="static/images/Default-Profile.jpeg" alt="Profile Picture" class="profile-image">
+          <i class="fas fa-edit profile-edit-icon" onclick=" editProfileImage()"></i>
+        </div>
+
+        <div class="card-body profile-body">
+          <h2 class="card-title profile-details"><i class="profile-icons"></i>Animesh Singh</h2>
+          <p class="card-text profile-details"><i class="fas fa-envelope profile-icons"></i>your.email@example.com</p>
+          <p class="card-text profile-details"><i class="fas fa-phone profile-icons"></i>(123) 456-7890</p>
+          <p class="card-text profile-details"><i class="fas fa-map-marker-alt profile-icons"></i>Your City</p>
+        <div>
+
+          <p class="completion-text">Completed Profile <span id="completionPercentage">0%</span></p>
+          <div class="progress" style="height: 7px; margin-top: -6px;">
+            <div id="profileProgressBar" class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <script>
+    function editVoiceMessage() {
+      document.getElementById('fileInput').click();
+    }
+
+    function handleFileChange() {
+      // Handle file upload logic here
+      const fileInput = document.getElementById('fileInput');
+      const selectedFile = fileInput.files[0];
+
+      // Perform actions with the selected file (e.g., upload to server)
+      console.log('Selected File:', selectedFile);
+    }
+  </script>
+    <!-- Right Column: Edit Profile Form -->
+    <div class="col-md-6 position-relative">
+        <h2 class="profile-edit-title"><span class="profile-pattern"></span>Profile card</h2>
+
+    <div class="card edit-form" style="overflow-x: auto;">
+            <div class="edit-form-body">
+                <button class="btn btn-primary edit-profile-btn" id="editProfileBtn" onclick="toggleEditForm()">
+                    <i class="fas fa-pencil-alt"></i> Edit Profile
+                </button>
+                    </div>
+
+                <form id="editForm">
+                    <div class="row">
+                         <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" disabled>
+                         </div>
+                         <div class="col-md-6 mb-3">
+                                 <label for="email" class="form-label">Email</label>
+                                 <input type="email" class="form-control" id="email" placeholder="your.email@example.com" disabled>
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                           <label for="phone" class="form-label">Phone</label>
+                           <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                           <label for="Age" class="form-label">Age</label>
+                           <input type="number" class="form-control" id="Age" placeholder="Your Age" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="states" class="form-label">State / Union Territory</label>
+                          <select class="form-select" id="states" disabled>
+                            <option value="">Select State / UT</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                          <label for="city" class="form-label">City</label>
+                          <input type="text" class="form-control" id="city" placeholder="Your city" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                          <label for="gender" class="form-label">Gender</label>
+                          <select class="form-select" id="gender" disabled>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="city" class="form-label">Address</label>
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="address" placeholder="Your Address" disabled>
+                        <button type="button" class="btn btn-primary" id="detectlocation" onclick="detectLocation()" disabled>Detect Location</button>
+                      </div>
+                    </div>
+                </form>
+               <button type="submit" class="btn btn-primary" id="saveChangesBtn" onclick="saveChanges()" style="display: none;">Save Changes</button>
+
+            </div>
+        </div>
+    </div>
+      <input type="file" id="coverImageInput" style="display: none;" accept="image/*" onchange="handleFileSelect(event)">
+      <input type="file" id="profileImageInput" style="display: none;"  accept="image/*" onchange="handleProfileImageSelect(event)">
+  </div>
+<!-- Modal for location permission -->
+<div id="locationModal">
+    <p>We would like to access your location for a better experience on our site.</p>
+    <button onclick="getLocation()">Allow</button>
+</div>
+<script>
+    // Function to show the location modal
+    function showLocationModal() {
+        const modal = document.getElementById('locationModal');
+        modal.style.display = 'block';
+    }
+
+    // Function to hide the location modal with animation
+    function hideLocationModal() {
+        const modal = document.getElementById('locationModal');
+        modal.style.animation = 'fadeOut 0.5s ease-in';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.style.animation = 'none'; // Reset the animation
+        }, 500); // Set the timeout to match the animation duration
+    }
+
+    // Function to get the user's location
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                // Success callback
+                (position) => {
+                    // You can do something with the user's location here
+                    console.log('User location:', position.coords.latitude, position.coords.longitude);
+                    // Close the modal with animation
+                    hideLocationModal();
+                },
+                // Error callback
+                (error) => {
+                    console.error('Error getting location:', error.message);
+                    // Close the modal with animation even if there's an error
+                    hideLocationModal();
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+            // Close the modal with animation if geolocation is not supported
+            hideLocationModal();
+        }
+    }
+
+    // Show the location modal after a delay
+<!--    setTimeout(showLocationModal, 5000);-->
+</script>
+<!-- Add this inside your existing profile-container div -->
+<div class="container profile-container">
+    <div id="inventoryContainer" class="container mt-4">
+        <h2 class="inventory-edit-title"><span class="profile-pattern"></span>My Inventory </h2>
+        <div class="switch-container ">
+          <input type="checkbox" class="switch-checkbox d-none d-sm-block" id="toggleSwitch" onclick="toggleView()">
+          <label class="switch-label d-none d-sm-block" for="toggleSwitch"></label>
+          <div class="label-container d-none d-sm-block">
+            <label for="toggleSwitch">Toggle to view </label>
+          </div>
+        </div>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary" style="margin-top:20px;padding: 10px 20px; " onclick="openAddItemModal()">Add Item</button>
+            </div>
+        <table class="table" id="tableView" style="display: none;">
+            <thead>
+              <tr>
+                 <th scope="col" style="width:20%;">Item Name</th>
+                  <th scope="col" style="width: 5%;">Quantity</th>
+                  <th scope="col" style="width: 15%;">Price</th>
+                  <th scope="col" style="width: 20%;">Total Price</th>
+                  <th scope="col" style="width: 30%;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+              <!-- Inventory items will be dynamically added here -->
+            </tbody>
+        </table>
+        <!-- Card View -->
+    <div id="cardView" style="display: block;">
+      <h2 class="mb-3">Inventory Management</h2>
+         <div class="row" id="cardContainer">
+                <!-- Card items will be dynamically added here -->
+         </div>
+    </div>
+
+    </div>
+</div>
+
+<!-- payments script -->
+<div class="container profile-container">
+    <h2 class="inventory-edit-title"><span class="profile-pattern"></span>My Payments </h2>
+     <div class="container mt-5">
+    <div class="payment-btns">
+      <button type="button" class="btn paymentbttn active" id="paymentSentBtn">Payment Sent</button>
+      <button type="button" class="btn paymentbttn2 active" id="paymentReceivedBtn">Payment Received</button>
+    </div>
+
+    <div class="payment-cards" id="paymentCards">
+      <!-- Payment cards will be dynamically added here -->
+    </div>
+  </div>
+  </div>
+
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+    // Simulate a click on the "Payment Sent" button
+    document.getElementById('paymentSentBtn').click();
+  });
+
+    document.getElementById('paymentSentBtn').addEventListener('click', function() {
+      showPaymentCards('paymentSentBtn');
+    });
+
+    document.getElementById('paymentReceivedBtn').addEventListener('click', function() {
+      showPaymentCards('paymentReceivedBtn');
+    });
+
+    function showPaymentCards(activeBtnId) {
+      // Reset active state
+      document.getElementById('paymentSentBtn').classList.remove('active');
+      document.getElementById('paymentReceivedBtn').classList.remove('active');
+
+      // Set active state to the clicked button
+      document.getElementById(activeBtnId).classList.add('active');
+
+      // Get the payment cards container
+      var paymentCardsContainer = document.getElementById('paymentCards');
+
+      // Clear existing cards
+      paymentCardsContainer.innerHTML = '';
+
+      // Add dummy data for demonstration
+      var dummyData = [
+        { name: 'John Doe', date: '2023-11-24', amount: 'Rs 50.00', type: 'sent' },
+        { name: 'John Doe', date: '2023-11-24', amount: 'Rs 50.00', type: 'sent' },
+        { name: 'Jane Smith', date: '2023-11-23', amount: 'Rs 30.00', type: 'received' },
+        { name: 'Jane Smith', date: '2023-11-23', amount: 'Rs 30.00', type: 'received' },
+        // Add more data as needed
+      ];
+
+      // Create and append cards based on the dummy data
+      dummyData.forEach(function(data) {
+        if ((activeBtnId === 'paymentSentBtn' && data.type === 'sent') ||
+            (activeBtnId === 'paymentReceivedBtn' && data.type === 'received')) {
+          var card = document.createElement('div');
+          card.className = 'payment-card';
+          var cardColorClass = (data.type === 'sent') ? 'pcard-header-primary' : 'pcard-header-success';
+
+          card.innerHTML = ' <div class="pcard">'+
+                            '<div class="pcard-body">'+
+        '<div class="pcard-header ' + cardColorClass + '"></div>' +
+                            '<h5 class="card-title">' + data.name + '</h5>' +
+'<p class="pcard-text pcard-text-date">Date: <span class="pcard-text-date-value">' + data.date + '</span></p>' +
+'<p class="pcard-text pcard-text-amount">Amount: <span class="pcard-text-amount-value">' + data.amount + '</span></p>' +
+                            '</div>'+
+                            '</div>';
+
+          paymentCardsContainer.appendChild(card);
+        }
+      });
+    }
+  </script>
+
+    <script>
+ function toggleView() {
+  const tableView = document.getElementById('tableView');
+  const cardView = document.getElementById('cardView');
+  const toggleButton = document.querySelector('.toggle-btn');
+
+  // Check which view is currently active
+  const isCardViewActive = cardView.style.display !== 'none';
+
+  // Toggle visibility with fade-in/fade-out animation
+  if (isCardViewActive) {
+    cardView.classList.remove('fade-in');
+    cardView.classList.add('fade-out');
+    setTimeout(() => {
+      cardView.style.display = 'none';
+      tableView.style.display = 'block';
+      tableView.classList.remove('fade-out');
+      tableView.classList.add('fade-in');
+    }, 500); // Adjust the delay to match the animation duration
+  } else {
+    tableView.classList.remove('fade-in');
+    tableView.classList.add('fade-out');
+    setTimeout(() => {
+      tableView.style.display = 'none';
+      cardView.style.display = 'block';
+      cardView.classList.remove('fade-out');
+      cardView.classList.add('fade-in');
+      updateCardView(); // Ensure cards are up to date
+    }, 500); // Adjust the delay to match the animation duration
+  }
+
+  // Toggle the active class on the toggle button
+  toggleButton.classList.toggle('active');
+}
+</script>
+ <!-- Bootstrap Modal for Add Item -->
+<div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addItemModalLabel">Add Item to Inventory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="crossModalButton">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add Item Form -->
+        <form id="itemForm">
+          <div class="form-label">
+            <label for="itemName" id="itemlabel">Item Name</label>
+            <select class="form-control" id="itemName" required></select>
+            <!-- Add the following checkbox for "Other" item -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="otherCheckbox">
+              <label class="form-check-label" for="otherCheckbox">Other</label>
+            </div>
+
+            <!-- Add the following input field for custom item name -->
+            <div class="mb-3" style="display: none;" id="otherItemInput">
+              <label for="otherInput" class="form-label">Other Item</label>
+              <input type="text" class="form-control" id="otherInput" placeholder="Enter other item">
+            </div>
+          </div>
+          <div class="row">
+              <!-- Add the following input field for custom item name -->
+              <div class="col-md-6">
+                <div class="form-label">
+                  <label for="itemQuantity">Quantity</label>
+                  <input type="number" class="form-control" id="itemQuantity" required>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-label">
+                  <label for="quantityUnit">Unit</label>
+                  <select class="form-control " id="quantityUnit">
+                    <!-- Add your unit options here -->
+                     <option value="g">Gram (g)</option>
+                      <option value="kg">Kilogram (kg)</option>
+                      <option value="kg">Quintal (q)</option>
+                      <option value="lb">Metric tonne (t)</option>
+                    <!-- Add more units as needed -->
+                  </select>
+                </div>
+              </div>
+          </div>
+          <div class="form-label">
+            <label for="itemtPrice">Total Price</label>
+            <input type="number" class="form-control" id="itemtPrice" required>
+          </div>
+          <div id="errorMessage" class="text-danger"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" ID="closeModalButton" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ID="additemModalButton" onclick="submitItemForm()">Add Item</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Modal for edit Item -->
+<div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editItemModalLabel">Edit Item Values</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="editssModalButton">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- edit Item Form -->
+        <form id="edititemForm">
+          <div class="form-label">
+            <label for="edititemName" id="edititemlabel">Item Name</label>
+            <select class="form-control" id="edititemName" required></select>
+            <!-- Add the following checkbox for "Other" item -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="editotherCheckbox">
+              <label class="form-check-label" for="editotherCheckbox">Other</label>
+            </div>
+
+            <!-- Add the following input field for custom item name -->
+            <div class="mb-3" style="display: none;" id="editotherItemInput">
+              <label for="editotherInput" class="form-label">Other Item</label>
+              <input type="text" class="form-control" id="editotherInput" placeholder="Enter other item">
+            </div>
+          </div>
+          <div class="row">
+              <!-- Add the following input field for custom item name -->
+              <div class="col-md-6">
+                <div class="form-label">
+                  <label for="edititemQuantity">Quantity</label>
+                  <input type="number" class="form-control" id="edititemQuantity" required>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-label">
+                  <label for="editquantityUnit">Unit</label>
+                  <select class="form-control " id="editquantityUnit">
+                    <!-- Add your unit options here -->
+                     <option value="g">Gram (g)</option>
+                      <option value="kg">Kilogram (kg)</option>
+                      <option value="kg">Quintal (q)</option>
+                      <option value="lb">Metric tonne (t)</option>
+                    <!-- Add more units as needed -->
+                  </select>
+                </div>
+              </div>
+          </div>
+          <div class="form-label">
+            <label for="edititemtPrice">Total Price</label>
+            <input type="number" class="form-control" id="edititemtPrice" required>
+          </div>
+          <div id="editerrorMessage" class="text-danger"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" ID="editcloseModalButton" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ID="edititemModalButton" onclick="submitEditedItem()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Deletion</h5>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete Item <span id="deleteConfirmationItemName" style="color: red;"></span> ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="deltemodalclose" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Update Confirmation Modal -->
+<div class="modal fade" id="updateConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="updateConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateConfirmationModalLabel">Confirm Update</h5>
+      </div>
+      <div class="modal-body">
+        Item Already Exist !! Are you sure you want to update Item <span id="updateConfirmationItemName" style="color: blue;"></span> ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="updateCancelModalButton" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmUpdateButton">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<!-- JavaScript for Profile Completion Progress Bar -->
+<script>
+  // Function to update the profile completion progress bar
+  function updateProfileProgressBar() {
+    // Replace these variables with the actual field values filled by the user
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const city = document.getElementById('city').value;
+    const age = document.getElementById('Age').value;
+    const gender = document.getElementById('gender').value;
+
+
+    // Define the total number of fields in the profile
+    const totalFields = 6; // You may need to adjust this based on your actual fields
+
+    // Count how many fields are filled
+    let filledFields = 0;
+    if (name.trim() !== '') filledFields++;
+    if (email.trim() !== '') filledFields++;
+    if (phone.trim() !== '') filledFields++;
+    if (city.trim() !== '') filledFields++;
+    if (age.trim() !== '') filledFields++;
+    if (gender.trim() !== '') filledFields++;
+
+
+
+    // Calculate the completion percentage
+    const completionPercentage = (filledFields / totalFields) * 100;
+
+    // Update the profile completion progress bar
+    const profileProgressBar = document.getElementById('profileProgressBar');
+    const completionPercentageText = document.getElementById('completionPercentage');
+
+    // Set the width of the progress bar based on the completion percentage
+    profileProgressBar.style.width = completionPercentage + '%';
+    profileProgressBar.setAttribute('aria-valuenow', completionPercentage);
+
+    // Update the completion percentage text
+completionPercentageText.textContent = completionPercentage.toFixed(2) + '%';
+  }
+
+  // Example: Attach the updateProfileProgressBar function to form submission
+  document.getElementById('editForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting (you may handle form submission as needed)
+    updateProfileProgressBar();
+  });
+</script>
+<script>
+  function detectLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          // Use a geocoding service or reverse geocoding to get city information
+          // For simplicity, we'll just use a placeholder city here
+          const detectedCity = 'Detected City';
+
+          // Update the city field in the form
+          document.getElementById('city').value = detectedCity;
+
+          // Enable the Save Changes button
+          document.getElementById('editForm').elements['Save Changes'].disabled = false;
+        },
+        function (error) {
+          console.error('Error getting location:', error);
+          alert('Failed to detect location. Please enter your city manually.');
+        }
+      );
+    } else {
+      alert('Geolocation is not supported by your browser.');
+    }
+  }
+</script>
+<script>
+  function toggleEditForm() {
+  const editForm = document.getElementById('editForm');
+  const formElements = editForm.elements;
+
+  // Toggle visibility of the Save Changes button
+  const saveChangesBtn = document.getElementById('saveChangesBtn');
+  saveChangesBtn.style.display = saveChangesBtn.style.display === 'none' ? 'block' : 'none';
+
+  // Toggle visibility of the Edit Profile button
+  const editProfileBtn = document.getElementById('editProfileBtn');
+  editProfileBtn.disabled=true;
+
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+
+    // Enable all form elements
+    element.disabled = false;
+  }
+}
+function saveChanges() {
+  const editProfileBtn = document.getElementById('editProfileBtn');
+  const saveChangesBtn = document.getElementById('saveChangesBtn');
+
+  // Hide the Save Changes button
+  saveChangesBtn.style.display = 'none';
+
+  const editForm = document.getElementById('editForm');
+  const formElements = editForm.elements;
+
+  // Show the Edit Profile button
+  editProfileBtn.disabled = false;
+
+  // Add logic to enable/disable other form fields as needed
+  const nameInput = document.getElementById('name');
+  nameInput.disabled = !nameInput.disabled;
+
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    element.disabled =true;
+  }
+
+  // Update corresponding fields in the profile card
+    const profileName = document.querySelector('.card-title.profile-details');
+    const profileEmail = document.querySelector('.card-text.profile-details:nth-child(2)');
+    const profilePhone = document.querySelector('.card-text.profile-details:nth-child(3)');
+    const profilelocation = document.querySelector('.card-text.profile-details:nth-child(4)');
+
+    profileName.textContent = nameInput.value;
+    profileEmail.innerHTML = `<i class="fas fa-envelope profile-icons"></i>${document.getElementById('email').value}`;
+    profilePhone.innerHTML = `<i class="fas fa-phone profile-icons"></i>${document.getElementById('phone').value}`;
+    profilelocation.innerHTML= `<i class="fas fa-map-marker-alt profile-icons"></i>${document.getElementById('city').value}`;
+    // You can similarly update other fields as needed
+}
+
+
+</script>
+
+
+</body>
+</html>

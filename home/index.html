@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="static/sendemail.js"></script>
+    <script src="static/register.js"></script>
+    <script src="static/forgotpassword.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
+    <!-- Your jumbotron content goes here -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">
+        <div class="circular-logo">
+        <img src="static/images/logo.png" alt="Your Logo" width="120" height="120">
+    </div>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation" onclick="toggleLoginButton()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+<div style="position: fixed; background: rgb(242, 112, 82); color: rgb(255, 255, 255); padding: 10px 15px; font-family: arial; font-size: 15px; font-weight: bold; letter-spacing: 0.7px; line-height: 1em; cursor: pointer; z-index: 99999; bottom: 0px; right: 20px; border-top-right-radius: 5px; border-top-left-radius: 5px;"><img src="https://www.improvedcontactform.com/images/email.png" alt="Email Icon" style="height: 13px; display: inline; margin: 0; padding: 0">&nbsp; Contact Us</div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active ">
+                    <a class="nav-link " href="#" > 🏠 Home </a>
+                    <span class="stylish-header"></span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../market/market.html"> 🏢 Market Trend</a>
+
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../about-us/index.html">❓About Us</a>
+                </li>
+            </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item2 text-center">
+                    <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn2" data-target="#signInModal">Get Started</a>
+            </li>
+        </ul>
+
+    </div>
+
+           <ul class="navbar-nav ml-auto" id="loginButtonContainer">
+            <li class="nav-item text-center">
+                  <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms4()" id ="loginButton" data-target="#signInModal"> 👤Log In</a>
+           </li>
+            <li class="nav-item text-center" id="userProfileDropdown" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-light mx-2 dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            👤 Hi, <span id="userName"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                   </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    function toggleLoginButton() {
+        var loginButtonContainer = document.getElementById("loginButtonContainer");
+        if (loginButtonContainer.style.display === "none") {
+            loginButtonContainer.style.display = "block";
+        } else {
+            loginButtonContainer.style.display = "none";
+        }
+    }
+</script>
+<section class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+        <header class="text-succes font-weight-bold mb-3  stylish-header">AgriTech - AI powered Support to Agriculture</header>
+            <h1 class="text-dark font-weight-bold stylish-text">
+                <em>Combine AI and Agricultre</em>
+                for excellent customer service
+            </h1>
+            <div class="mb-4">
+                <ul class="css-1mmdw21 eu7cptq2">
+                    <li color="#002661" font-weight="400" class="css-5rbgsh e4bac1c0">Solve up to 70% of farmers & traders  problems with conversational AI</li>
+                    <li color="#002661" font-weight="400" class="css-5rbgsh e4bac1c0">Provide detailed Analysis with AI  chatbot </li>
+                 </ul>
+            </div>
+
+            <div class="text-center text-md-left">
+
+                <a href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn3" data-target="#signInModal" class="btn btn-success btn-lg font-weight-bold">Get started</a>
+                <p class="text-muted font-weight-normal mt-2">Free at all*</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <img src="static/images/ai.jpg" alt="Combine AI and human support for excellent customer service" class="img-fluid">
+        </div>
+    </div>
+</section>
+    <section>
+
+
+        <div class="feature" data-aos="fade-up">
+            <img src="static/images/weather.jpg" alt="Weather Insights">
+            <div class="feature-details">
+                <h2>Weather Insights</h2>
+                <p>Real-time weather conditions and forecasts for informed decision-making.</p>
+                <ul>
+                    <li>Temperature, humidity, and wind data</li>
+                    <li>Hourly and daily forecasts</li>
+                    <li>Severe weather alerts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature" data-aos="fade-up">
+            <div class="feature-details">
+                <h2>Soil Testing</h2>
+                <p>Accurate soil testing services for optimizing crop health and productivity.</p>
+                <ul>
+                    <li>Nutrient analysis</li>
+                    <li>Soil composition insights</li>
+                    <li>Recommendations for fertilizers</li>
+                </ul>
+            </div>
+            <img src="static/images/soil.jpeg" alt="Soil Testing">
+        </div>
+
+        <div class="feature" data-aos="fade-up">
+            <img src="static/images/crop.jpeg" alt="Crop Health Monitoring">
+            <div class="feature-details">
+                <h2>Crop Health Monitoring</h2>
+                <p>Monitor the health of your crops in real-time for early detection of issues.</p>
+                <ul>
+                    <li>Visual crop health assessment</li>
+                    <li>Identification of diseases and pests</li>
+                    <li>Customizable alert system</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature" data-aos="fade-up">
+            <div class="feature-details">
+                <h2>AI Predictions</h2>
+                <p>Utilize AI-driven predictions for better crop management and yield optimization.</p>
+                <ul>
+                    <li>Yield forecasts based on AI algorithms</li>
+                    <li>Optimal planting and harvesting times</li>
+                    <li>Resource utilization recommendations</li>
+                </ul>
+            </div>
+            <img src="static/images/ai.jpg" alt="AI Predictions">
+        </div>
+    </section>
+
+
+
+
+
+<!-- Sign In/Sign Up Modal -->
+<div class="modal fade custom-modal" id="signInModal"  tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signInModalLabel" >Log In / Sign Up</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--         <img src="images/account-icon-23.png" alt="Image" class="img-fluid"  width="100" height="75">>-->
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <!-- Login form -->
+                       <div id="loginSuccessMessage" style="display: none;">
+                          Welcome, <span id="userNamePlaceholder" class="green-text"></span>. Good to see you again.
+                       </div>
+
+                      <form id="loginForm">
+                            <div class="form-group">
+                            <label for="loginEmail" class="visually-hidden">Login Email</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="loginEmail" placeholder="Enter your Email ID">
+                            </div>
+                        </div>
+
+                            <div class="form-group">
+                            <label for="loginPassword" class="visually-hidden">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+                            </div>
+                            <!-- Error message for incorrect credentials -->
+                            <small id="loginError" class="form-text text-danger"></small>
+                        </div>
+
+                          <div class="form-group">
+<!-- Inside the Login form -->
+                        <a href="#" id="forgotPasswordLink" onclick="showForgotPasswordModal()">Forgot Password?</a>
+                          </div>
+                             <div class="login-button-container">
+                                <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Login</button>
+                             </div>
+
+
+                      </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <!-- Registration form -->
+                        <!-- Inside the Registration form -->
+                    <form id="registerForm" class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="registerName">Full Name</label>
+                                <input type="text" class="form-control" id="registerName" placeholder="Enter your full name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your full name.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="registerEmail">Email</label>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Create Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Create a password" required>
+                            <div class="invalid-feedback">
+                                Please create a password.
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="verifyEmailOTP">Verify Email by OTP</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="verifyEmailOTP" placeholder="Enter OTP" required>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary btn-block" id="verifyButton" onclick="sendEmailVerification()">
+                                      <span id="verifyButtonContent">Send OTP</span>
+                                      <span id="verifyButtonSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                                   </button>
+                                </div>
+                            </div>
+                            <small id="otpHelp" class="form-text text-muted">An OTP will be sent to your email.</small>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitRegisterForm()">Sign Up</button>
+                         <div id="message"></div>
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div id="registrationSuccess" style="display: none;">
+    <p id="registrationSuccessMessage">Thank you for registering! Now you can log in.</p>
+                        </div>
+            <div class="modal-footer">
+                <!-- Inside the Login form -->
+
+             <button type="button" class="btn btn-link" onclick="toggleForms()" id="toggleFormsBtn">Don't have an account? Sign Up</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="floginEmail"  style="display: none;">Login Email</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="floginEmail" placeholder="Enter your Email ID">
+                  </div>
+                </div>
+                <div class="form-group">
+                      <label for="verifyEmailOTP" style="display: none;">Verify Email by OTP</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="fverifyEmailOTP" placeholder="Enter OTP">
+                        <div class="input-group-append">
+                          <button type="button" class="btn btn-primary btn-block" id="fverifyButton" onclick="sendforgotEmailVerification()">
+                            <span id="fverifyButtonContent">Send OTP</span>
+                            <span id="fverifyButtonSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                          </button>
+                        </div>
+                      </div>
+                      <small id="fotpHelp" class="form-text text-muted">An OTP will be sent to your email.</small>
+                      <div id="fmessage"></div>
+                    </div>
+                    <div class="form-group" id="resetPasswordFields" style="display: none;">
+                        <input type="password" class="form-control" id="newPassword" placeholder="Enter your new password" >
+                    </div>
+                    <div class="form-group" id="confirmPasswordFields" style="display: none;">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your new password" >
+                    </div>
+                    <button type="button" class="btn btn-primary" id="resetpassbttn" onclick="resetPassword()">Reset Password</button>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- Congratulations Modal -->
+<div class="modal fade" id="congratulationsModal" tabindex="-1" role="dialog" aria-labelledby="congratulationsModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="congratulationsModalLabel">Congratulations!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your password has been successfully reset. Congratulations!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleForms() {
+        if ($('#login').hasClass('show')) {
+            // Switching to the registration form
+                        $('#signInModalLabel').text('Sign up');
+
+            $('#login').removeClass('show active');
+            $('#register').addClass('show active');
+            $('#login-tab').removeClass('active');
+            $('#register-tab').addClass('active');
+            $('#toggleFormsBtn').text("Already have an account? Log In");
+        } else {
+            // Switching to the login form
+            $('#signInModalLabel').text('Log In');
+
+            $('#register').removeClass('show active');
+            $('#login').addClass('show active');
+            $('#register-tab').removeClass('active');
+            $('#login-tab').addClass('active');
+            $('#toggleFormsBtn').text("Don't have an account? Sign Up");
+        }
+    }
+</script>
+<script>
+    function toggleForms2() {
+            // Switching to the registration form
+            $('#signInModalLabel').text('Sign Up');
+
+            $('#login').removeClass('show active');
+            $('#register').addClass('show active');
+            $('#login-tab').removeClass('active');
+            $('#register-tab').addClass('active');
+            $('#toggleFormsBtn').text("Already have an account? Log In");
+    }
+    function toggleForms4() {
+            // Switching to the registration form
+             $('#signInModalLabel').text('Log In');
+
+            $('#register').removeClass('show active');
+            $('#login').addClass('show active');
+            $('#register-tab').removeClass('active');
+            $('#login-tab').addClass('active');
+            $('#toggleFormsBtn').text("Don't have an account? Sign Up");
+    }
+</script>
+<script>
+      // Add an event listener for the modal's hidden.bs.modal event
+    $('#signInModal').on('hidden.bs.modal', function (e) {
+        // Reset the form fields when the modal is hidden
+        document.getElementById('registerForm').reset();
+        document.getElementById('message').innerHTML = ''; // Clear any previous messages
+    });
+    $('#signInModal').on('hidden.bs.modal', function (e) {
+        // Reset the form fields when the modal is hidden
+        document.getElementById('registerForm').reset();
+        document.getElementById('message').innerHTML = ''; // Clear any previous messages
+    });
+
+</script>
+
+<!-- Add these lines to include Bootstrap and jQuery -->
+
+<script>
+    function submitLoginForm() {
+    // Clear any previous error messages
+    $('#loginError').text('');
+
+    // Get the user inputs
+    var email = $('#loginEmail').val();
+    var password = $('#loginPassword').val();
+
+    // Your AJAX request to the server for login
+    $.ajax({
+        url: '/login', // Your server endpoint
+        type: 'POST',
+        data: {
+            email: email,
+            password: password
+        },
+
+        success: function (response) {
+            console.log(response);  // Log the response to the console
+
+         if (response.status === 'success') {
+            const userNamePlaceholder = $('#userNamePlaceholder');
+        userNamePlaceholder.text(response.full_name);
+        userNamePlaceholder.addClass('green-text');
+
+        const restOfText = $('<span>', { text: ' Good to see you again., ', class: 'blue-text' });
+
+        // Create a new span for "Welcome"
+        const welcomeSpan = $('<span>', { text: 'Welcome, ', class: 'blue-text' });
+
+        // Append the welcome span, user name, and rest of the text
+        $('#loginSuccessMessage').empty().append(welcomeSpan).append(userNamePlaceholder).append(restOfText);
+
+            // Login successful, hide the login form and show the success message
+            $('#loginForm').hide();
+            $('#loginSuccessMessage').show();
+            $('#signInModalLabel').text('Login Successful');
+            $('#toggleFormsBtn').hide();
+                $('#loginButton').hide();
+                    $('#userProfileDropdown').show();
+                        $('#userName').text(response.full_name);
+
+
+
+    } else {
+        // Invalid email or password, show error under the password input
+        $('#loginError').text('Invalid email or password');
+    }
+},
+    error: function () {
+            // Handle error
+            console.log('Error during login');
+        }
+        });
+}
+
+
+</script>
+<script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

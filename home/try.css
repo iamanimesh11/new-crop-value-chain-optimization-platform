@@ -1,0 +1,163 @@
+/* Custom styles for improved layout and design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .feature {
+            width: 80%;
+            text-align: center;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            padding: 30px;
+            font-size: 20px;
+            height:500px;
+        }
+
+        .feature img {
+            width: 50%;
+            margin-right: 100px;
+            height: 70%;
+            border-radius: 0px 50px 0 42px;
+        }
+
+        .feature .feature-details {
+            padding: 20px;
+            width: 50%;
+            text-align: left;
+        }
+
+        .feature h2 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .feature p {
+            color: #6c757d;
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .feature ul {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 24px;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .feature img {
+                border-radius: 12px 12px 0 0;
+                width: 100%;
+            }
+
+            .feature .feature-details {
+                width: 100%;
+                text-align: left;
+
+            }
+        }
+.stylish-text {
+    color: #080f1a;
+
+     font-weight: 600;
+     white-space: pre-line;
+     font-size: 45px;
+     line-height: 41px;
+      letter-spacing: -0.01em;
+           margin-top: -45px;
+
+     margin-bottom: 24px;
+      font-weight: 600;
+      text-align: left;
+}
+
+.stylish-text em {
+      background: #0566ff;
+       font-style: normal;
+       webkit-background-clip: text;
+       background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+
+
+}
+.stylish-text strong {
+    word-break: break-all;
+}
+
+
+.stylish-header {
+    font-family: 'Your Stylish Font', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px 0; /* Adjust the padding to decrease the height of the box */
+   font-size: 20px; /* Choose the desired font size */
+    background-color: transparent !important;
+    text-align:left;
+
+}
+
+.stylish-header::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #ff7c43;
+    margin-top: 1px; /* Adjust the spacing between the header and the underline */
+}
+
+.css-1mmdw21 li {
+    margin-bottom: 16px;
+    font-weight: 500;
+    list-style-type: disc;
+    }
+.img-fluid {
+    border-radius: 20px; /* You can adjust this value for more or less rounded corners */
+    box-shadow: 20px 40px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
+
+}
+.container py-5 {
+margin-top:-20px;
+}

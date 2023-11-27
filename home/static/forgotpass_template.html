@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email Address</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #555555;
+        }
+        .container {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            max-width: 100px; /* Adjust the max-width as needed */
+            margin-bottom: 20px;
+        }
+        h1 {
+            background-color: #4CAF50; /* Green background color */
+            color: #ffffff; /* White text color */
+            display: inline-block;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .verification-code {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4CAF50; /* Green text color */
+            margin-top: 20px;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .signature {
+            font-style: italic;
+            font-size: 20px;
+            color: #4CAF50; /* Green text color */
+            margin-top: 20px;
+        }
+        h2 {
+         color: blue; /* White text color */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="images/logo.png" alt="Logo">
+        <h2>AgriTech Bazaar</h2>
+        <h1> Forget Password One Time Password</h1>
+        <p>Hi, <strong>{{ name }}</strong>,</p>
+        <p>Reset you password of <strong>{{ email }}</strong> account.</p>
+        <p>Your verification code is: <span class="verification-code">{{ verification_code }}</span></p>
+    </div>
+    <p>Thank you for using our service.</p>
+    <p class="signature">Best regards,<br> AgriTech Bazaar</p>
+</body>
+</html>

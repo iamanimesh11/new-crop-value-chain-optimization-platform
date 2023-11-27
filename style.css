@@ -1,0 +1,140 @@
+/* styles.css */
+
+.navbar-nav .nav-link {
+    padding: 0px 1px; /* Adjust padding as needed */
+}
+
+/* Style for the container of images */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for 3D effect */
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 20px; /* Adjust the image size as needed */
+    height: auto;
+}
+/* styles.css */
+
+.circular-shape {
+    width: 100px;
+    height: 100px;
+    background-color: #FFA500; /* Orange color */
+    border-radius: 50%; /* Create a circular shape */
+    position: absolute;
+    left: 20px; /* Adjust the left position as needed */
+    top: 50%; /* Vertically center the circle */
+    transform: translateY(-50%); /* Vertically center the circle */
+}
+/* styles.css */
+.equal-size-img {
+    width: 400px;
+    height: 500px;
+    max-height: 300px; /* Adjust the maximum height as needed */
+}
+/* CSS for the image wrappers */
+.svg-image-wrapper, .svg-image-wrapper2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* To ensure the wrapper takes up the full height of the parent container */
+    background-color:#2db94d; /* Background color for the rectangular shape */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Box shadow with offset, blur, and color */
+
+}
+
+/* CSS for the images */
+.svg-image, .svg-image2 {
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+}
+
+
+/* CSS for circular logo container */
+.circular-logo {
+    width: 100px; /* Adjust the size of the circular container as needed */
+    height: 100px; /* Adjust the size of the circular container as needed */
+    border-radius: 80%; /* Make it a circle */
+    overflow: hidden;
+}
+
+/* CSS for the logo image */
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+/* CSS to decrease the bottom height of the navbar */
+.navbar {
+    padding-top: 0px; /* Adjust the top padding as needed */
+    padding-bottom: 0px; /* Adjust the bottom padding as needed */
+
+}
+
+/* Rest of your CSS */
+ .navbar .nav-item {
+            margin-right: 20px;
+            margin-bottom: 20px;/* Add spacing between buttons */
+              box-shadow: 0 50px 305px rgba(0, 0, 0.5, 0.6);
+               transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+ .navbar .nav-link {
+            color: white; /* Set text color to white */
+            color: red; /* Text color */
+            background-color: yellow;
+            font-weight: bold;
+            border-radius: 10px; /* Add rounded corners for button shape */
+            padding: 10px 0px; /* Add padding to increase button size */
+}
+
+.navbar .nav-link:hover {
+      background-color: hotpink; /* Change color on hover */
+      transform: scale(1.05); /* Scale up slightly on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+/* Custom styles for the modal */
+    /* Custom styles for the modal */
+    .custom-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-modal .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-modal .modal-header {
+        border-bottom: none;
+    }
+
+    .custom-modal .modal-title {
+        color: #007bff;
+        font-size: 24px;
+    }
+
+    .custom-modal .modal-body {
+        padding: 20px;
+    }
+
+    .custom-modal .form-group {
+        margin-bottom: 20px;
+    }
+
+    .custom-modal .input-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-modal .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }

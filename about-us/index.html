@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="static/sendemail.js"></script>
+    <script src="static/register.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
+    <!-- Your jumbotron content goes here -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">
+        <div class="circular-logo">
+        <img src="static/images/logo.png" alt="Your Logo" width="120" height="120">
+    </div>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation" onclick="toggleLoginButton()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active ">
+                    <a class="nav-link " href="../home/index.html" > 🏠 Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../market/market.html"> 🏢 Market Trend</a>
+
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">❓About Us</a>
+                     <span class="stylish-header"></span>
+
+                </li>
+            </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item2 text-center">
+                    <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn2" data-target="#signInModal">Get Started</a>
+            </li>
+        </ul>
+
+    </div>
+
+           <ul class="navbar-nav ml-auto" id="loginButtonContainer">
+            <li class="nav-item text-center">
+                  <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms4()" id ="loginButton" data-target="#signInModal"> 👤Log In</a>
+           </li>
+            <li class="nav-item text-center" id="userProfileDropdown" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-light mx-2 dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            👤 Hi, <span id="userName"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                   </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Green Banner with Images Inside -->
+<div class="jumbotron jumbotron-fluid bg-white text-black text-center position-relative">
+
+    <!-- First Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <header color="#080f1a" font-weight="500" class="css-7b7dla e4bac1c0">ABOUT AgriTech</header>
+                <h1 color="#080f1a" font-weight="600" class="css-6jfjsv e1sz0xeh0">We are AgriTech</h1>
+                <div class="css-fwnob0 eu7cptq3">
+                    <p color="#647491" class="css-1m3v8tj e4bac1c0">
+                        A company that brings together talented individuals from all over the world to solve challenging
+                        customer problems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="svg-image-wrapper">
+                    <img src="static/images/i2.png" alt="Right Image" class="svg-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Container -->
+    <div class="container second-container mt-5">
+        <div class="row">
+            <div class="col-md-6 hu">
+                <div class="svg-image-wrapper">
+                    <img src="static/images/i2.png" alt="Right Image" class="svg-image">
+                </div>
+            </div>
+            <div class="col-md-6 hu">
+                <header color="#080f1a" font-weight="500" class="our-mission">Our Mission</header>
+                <div class="css-fwnob0 eu7cptq3">
+                    <p color="#647491" font-weight="400" class="css-osyf1k e4bac1c0">Building a successful brand is not just about the product or service a business sells, but the relationships it develops with the people who trust it.
+                    &nbsp;
+                    At Tidio, we believe the best way to build relationships is through excellent customer support.
+                    &nbsp;
+                        Our suite of live chat, chatbots, helpdesk tools, and AI solutions enables brands of all sizes to offer quick and qualitative support and create real connections with their consumers so they can drive their businesses forward.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Sign In/Sign Up Modal -->
+<div class="modal fade custom-modal" id="signInModal"  tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signInModalLabel" >Log In / Sign Up</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--         <img src="images/account-icon-23.png" alt="Image" class="img-fluid"  width="100" height="75">>-->
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <!-- Login form -->
+                       <div id="loginSuccessMessage" style="display: none;">
+                     Welcome, <span id="userNamePlaceholder" class="green-text"></span>. Good to see you again.
+                    </div>
+
+                      <form id="loginForm">
+                            <div class="form-group">
+                                <label for="loginEmail">Login Email</label>
+                                <input type="text" class="form-control" id="loginEmail" placeholder="Enter your Email ID">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+                                <!-- Error message for incorrect credentials -->
+                                <small id="loginError" class="form-text text-danger"></small>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Login</button>
+                      </form>
+                    </div>
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <!-- Registration form -->
+                        <!-- Inside the Registration form -->
+                    <form id="registerForm" class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="registerName">Full Name</label>
+                                <input type="text" class="form-control" id="registerName" placeholder="Enter your full name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your full name.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="registerEmail">Email</label>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="verifyEmailOTP">Verify Email by OTP</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="verifyEmailOTP" placeholder="Enter OTP" required>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-primary btn-block" id="verifyButton" onclick="sendEmailVerification()">
+                                      <span id="verifyButtonContent">Send OTP</span>
+                                      <span id="verifyButtonSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                                   </button>
+                                </div>
+                            </div>
+                            <small id="otpHelp" class="form-text text-muted">An OTP will be sent to your email.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Create Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Create a password" required>
+                            <div class="invalid-feedback">
+                                Please create a password.
+                            </div>
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitRegisterForm()">Sign Up</button>
+                         <div id="message"></div>
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div id="registrationSuccess" style="display: none;">
+    <p id="registrationSuccessMessage">Thank you for registering! Now you can log in.</p>
+                        </div>
+            <div class="modal-footer">
+                <!-- Inside the Login form -->
+
+             <button type="button" class="btn btn-link" onclick="toggleForms()" id="toggleFormsBtn">Don't have an account? Sign Up</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function toggleForms() {
+        if ($('#login').hasClass('show')) {
+            // Switching to the registration form
+            $('#login').removeClass('show active');
+            $('#register').addClass('show active');
+            $('#login-tab').removeClass('active');
+            $('#register-tab').addClass('active');
+            $('#toggleFormsBtn').text("Already have an account? Log In");
+        } else {
+            // Switching to the login form
+            $('#register').removeClass('show active');
+            $('#login').addClass('show active');
+            $('#register-tab').removeClass('active');
+            $('#login-tab').addClass('active');
+            $('#toggleFormsBtn').text("Don't have an account? Sign Up");
+        }
+    }
+</script>
+<script>
+      // Add an event listener for the modal's hidden.bs.modal event
+    $('#signInModal').on('hidden.bs.modal', function (e) {
+        // Reset the form fields when the modal is hidden
+        document.getElementById('registerForm').reset();
+        document.getElementById('message').innerHTML = ''; // Clear any previous messages
+    });
+</script>
+
+<!-- Add these lines to include Bootstrap and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function submitLoginForm() {
+    // Clear any previous error messages
+    $('#loginError').text('');
+
+    // Get the user inputs
+    var email = $('#loginEmail').val();
+    var password = $('#loginPassword').val();
+
+    // Your AJAX request to the server for login
+    $.ajax({
+        url: '/login', // Your server endpoint
+        type: 'POST',
+        data: {
+            email: email,
+            password: password
+        },
+
+        success: function (response) {
+            console.log(response);  // Log the response to the console
+
+         if (response.status === 'success') {
+            const userNamePlaceholder = $('#userNamePlaceholder');
+        userNamePlaceholder.text(response.full_name);
+        userNamePlaceholder.addClass('green-text');
+
+        const restOfText = $('<span>', { text: ' Good to see you again., ', class: 'blue-text' });
+
+        // Create a new span for "Welcome"
+        const welcomeSpan = $('<span>', { text: 'Welcome, ', class: 'blue-text' });
+
+        // Append the welcome span, user name, and rest of the text
+        $('#loginSuccessMessage').empty().append(welcomeSpan).append(userNamePlaceholder).append(restOfText);
+
+            // Login successful, hide the login form and show the success message
+            $('#loginForm').hide();
+            $('#loginSuccessMessage').show();
+            $('#signInModalLabel').text('Login Successful');
+            $('#toggleFormsBtn').hide();
+    } else {
+        // Invalid email or password, show error under the password input
+        $('#loginError').text('Invalid email or password');
+    }
+},
+    error: function () {
+            // Handle error
+            console.log('Error during login');
+        }
+        });
+}
+
+
+</script>
+</body>
+</html>

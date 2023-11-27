@@ -1,0 +1,289 @@
+/* styles.css */
+
+.navbar-nav .nav-link {
+    padding: 0px 1px; /* Adjust padding as needed */
+}
+
+/* Style for the container of images */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for 3D effect */
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 20px; /* Adjust the image size as needed */
+    height: auto;
+}
+/* styles.css */
+
+
+/* styles.css */
+.equal-size-img {
+    width: 400px;
+    height: 500px;
+    max-height: 300px; /* Adjust the maximum height as needed */
+}
+/* CSS for the image wrappers */
+
+.svg-image-wrapper, .svg-image-wrapper2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* To ensure the wrapper takes up the full height of the parent container */
+    background-color:#2db94d; /* Background color for the rectangular shape */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Box shadow with offset, blur, and color */
+
+}
+
+/* CSS for the images */
+.svg-image, .svg-image2 {
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+}
+
+
+/* CSS for circular logo container */
+.circular-logo {
+    width: 100px; /* Adjust the size of the circular container as needed */
+    height: 100px; /* Adjust the size of the circular container as needed */
+    border-radius: 80%; /* Make it a circle */
+    overflow: hidden;
+}
+
+/* CSS for the logo image */
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+/* CSS to decrease the bottom height of the navbar */
+.navbar {
+    padding-top: 0px; /* Adjust the top padding as needed */
+    padding-bottom: 0px; /* Adjust the bottom padding as needed */
+
+}
+
+/* Rest of your CSS */
+ .navbar .nav-item {
+            margin-right: 20px;
+            margin-bottom: 10px;/* Add spacing between buttons */
+              box-shadow: 0 50px 305px rgba(0, 0, 0.5, 0.6);
+        }
+
+ .navbar .nav-link {
+            color: white; /* Set text color to white */
+            color: red; /* Text color */
+            font-weight: bold;
+            border-radius: 10px; /* Add rounded corners for button shape */
+            padding: 10px 0px; /* Add padding to increase button size */
+}
+
+.navbar .nav-link:hover {
+      background-color: #D3D3D3; /* Change color on hover */
+      transform: scale(1.05); /* Scale up slightly on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Updated styles for a more stylish form */
+.form-container {
+    width: 100%;
+    max-width: 800px; /* Set a maximum width to maintain readability */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 40px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+.form-container:hover {
+    transform: scale(1.02); /* Scale up on hover for a subtle effect */
+}
+
+.form-container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    background-color: white; /* Background color for the box */
+    color: black; /* Text color inside the box */
+    padding: 10px 20px; /* Add padding inside the box */
+    border-radius: 8px; /* Add rounded corners to the box */
+    font-size: 36px;
+
+    font-family: 'Helvetica', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(52, 152, 219, 0.5);
+    display: inline-block; /* Make the box only as wide as the content */
+}
+h2 {
+    background-color: white; /* Background color for the box */
+    color: black; /* Text color inside the box */
+    padding: 3px 20px; /* Add padding inside the box */
+    border-radius: 8px; /* Add rounded corners to the box */
+    font-size: 20px;
+    text-align:right;
+
+
+}
+.row {
+
+margin-top :40px;
+}
+/* Add these styles to your existing CSS */
+.image-in-form {
+    text-align: left; /* Center the image */
+    margin-bottom: 1px; /* Add space below the image */
+    margin-top:-91px;
+}
+
+.image-in-form img {
+    max-width: 30%; /* Make sure the image doesn't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 80px; /* Add rounded corners to the image */
+}
+
+label {
+    color: #555;
+    font-size: 14px; /* Decrease font size for labels */
+}
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px; /* Add space between input fields */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #3498db;
+}
+
+input[type="submit"]:hover {
+    background-color: #267bbf;
+}
+
+
+ #thankYouModal .modal-content {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #thankYouModal .modal-header {
+            border-bottom: none;
+        }
+
+        #thankYouModal .modal-title {
+            color: #3498db;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #thankYouModal .modal-body {
+            text-align: center;
+        }
+
+        #thankYouModal .modal-footer {
+            border-top: none;
+            text-align: center;
+        }
+
+        #thankYouModal .btn-secondary {
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+
+        #thankYouModal .btn-secondary:hover {
+            background-color: #267bbf;
+        }
+
+
+  .smaller-image {
+    max-width: 100px; /* Adjust the maximum width as needed */
+    text-align: left; /* Center the image */
+
+}
+.css-imqhw1 eh8sjqr0{
+    --rem: 16;
+    font-family: euclidcircularb, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    color: #080f1a;
+    }
+
+ .css-1tqiyr5 ekz8t9p0{
+        --rem: 16;
+    font-family: euclidcircularb, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    color: #080f1a;
+    box-sizing: border-box;
+    }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    grid-area: header;
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+ h3 {
+           text-align: center;
+            margin-top: 50px;
+            color: #333;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }

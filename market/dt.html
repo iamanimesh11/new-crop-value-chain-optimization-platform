@@ -1,0 +1,135 @@
+<div class="row">
+
+            <div class="col-md-5">
+                <!-- Left Container Aligned to the Left Side with Margin -->
+                <div class="centered-text" id="resultContainer">
+                    <h3>Papaya Price Summary in Udhampur Market</h3>
+                    <hr class="custom-hr">
+                    <img  id="cropImage" src="static/images/cropimage/logo.png" alt=" Image" style="max-width: 50%; border: 4px solid #ccc; box-shadow: 5px 5px 20px #888888;" />
+                    <div class="centered-text mt-3">
+                        <button class="btn btn-primary me-2">Go to Detailed Price</button>
+                        <button class="btn btn-secondary">Buyers</button>
+                    </div>
+                    <div id="loadingSpinner" style="display: none;">
+                           Loading...
+                          <div class="spinner-border text-primary" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                         </div>
+                    </div>
+
+                    <table class="table table-bordered table-striped mt-3 custom-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                 <td class="lc">Avg Price:</td>
+                                  <td class="rc" id="avgPrice"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Costliest Market Price:</td>
+                                <td class="rc" id="costliestPrice"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Cheapest Market Price:</td>
+                                 <td class="rc" id="cheapestPrice"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Latest Price Date:</td>
+                                <td class="rc" id="latestDate"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>Last 7 days Summary</h3>
+                    <hr class="custom-hr">
+                    <!-- Add a div for the second table content -->
+                    <div id="resultContainer_table2"></div>
+                    <div id="loadingSpinner2" style="display: none;">
+                        Loading...
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped mt-3 custom-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="lc">Commodity:</td>
+                                <td class="rc" id="Commodity2"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Market Details:</td>
+                                <td class="rc" id="MarketDetails2"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Avg Price:</td>
+                                  <td class="rc" id="avgPrice2"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Costliest Market Price:</td>
+                                <td class="rc" id="costliestPrice2"></td>
+                            </tr>
+                            <tr>
+                                 <td class="lc">Cheapest Market Price:</td>
+                                 <td class="rc" id="cheapestPrice2"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Varieties:</td>
+                                <td class="rc" id="Varieties2"></td>
+                            </tr>
+                            <tr>
+                                <td class="lc">Known as:</td>
+                                <td class="rc" id="Knownas2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <!-- Right Container Starting Where Left Ends with Margin -->
+                <div class="centered-text" id="resultContainer2">
+
+
+                     <h3>Papaya Market Rates in Udhampur</h3>
+                     <hr class="custom-hr">
+                     <h6>Get the latest and updated prices of Papaya in Udhampur market located in district Udhampur in the state of Jammu and Kashmir. You can compare the rates of different varieties of Papaya in Udhampur market.
+                         As per the current market rates, maximum price of Papaya is 5000.00 INR/Quintal in Udhampur whereas the minimum rate is 4500.00 INR/Quintal in Udhampur across varieties. The average price is 4750.00 INR/Quintal across varieties.</h6>
+
+                     <!-- Table that transforms into cards on mobile -->
+                  <div class="table-container2">
+                       <table class="table2 table-bordered table-striped mt-3 custom-table">
+                            <thead>
+                                 <tr>
+                                    <th>Arrival Date</th>
+                                    <th>Commodity</th>
+                                    <th>Modal Price</th>
+                                    <th>Min Price</th>
+                                    <th>Max Price</th>
+                                    <th>Variety</th>
+                                </tr>
+                            </thead>
+                             <tbody id="table3Body">
+                                <tr class="row-card"></tr>
+                             </tbody>
+                       </table>
+                  </div>
+
+                    <!-- Cards for mobile view -->
+                  <div class="cardd-container">
+                      <div class="card-container" id="table3cardBody">
+                       </div>
+                  </div>
+                  <div class="chart-container">
+                     <canvas id="priceChart" width="350" height="500"></canvas>
+                  </div>
+                </div>
+            </div>
+    </div>

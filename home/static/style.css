@@ -1,0 +1,415 @@
+/* styles.css */
+
+
+/* Style for the container of images */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for 3D effect */
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 20px; /* Adjust the image size as needed */
+    height: auto;
+}
+/* styles.css */
+
+.circular-shape {
+    width: 100px;
+    height: 100px;
+    background-color: #FFA500; /* Orange color */
+    border-radius: 50%; /* Create a circular shape */
+    position: absolute;
+    left: 20px; /* Adjust the left position as needed */
+    top: 50%; /* Vertically center the circle */
+    transform: translateY(-50%); /* Vertically center the circle */
+}
+/* styles.css */
+.equal-size-img {
+    width: 400px;
+    height: 500px;
+    max-height: 300px; /* Adjust the maximum height as needed */
+}
+/* CSS for the image wrappers */
+.svg-image-wrapper, .svg-image-wrapper2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* To ensure the wrapper takes up the full height of the parent container */
+    background-color:#2db94d; /* Background color for the rectangular shape */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Box shadow with offset, blur, and color */
+
+}
+
+/* CSS for the images */
+.svg-image, .svg-image2 {
+    max-width: 80%;
+    max-height: 80%;
+    height: auto;
+}
+
+
+/* CSS for circular logo container */
+.circular-logo {
+    width: 100px; /* Adjust the size of the circular container as needed */
+    height: 100px; /* Adjust the size of the circular container as needed */
+    border-radius: 80%; /* Make it a circle */
+    overflow: hidden;
+}
+
+/* CSS for the logo image */
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+* CSS to decrease the bottom height of the navbar */
+.navbar {
+    padding-top: 0px; /* Adjust the top padding as needed */
+    padding-bottom: 0px; /* Adjust the bottom padding as needed */
+
+}
+
+
+ .navbar .nav-item {
+            margin-right: 20px;
+            margin-bottom: 10px;/* Add spacing between buttons */
+              box-shadow: 0 50px 305px rgba(0, 0, 0.5, 0.6);
+        }
+
+ .navbar .nav-link {
+            color: white; /* Set text color to white */
+            color: red; /* Text color */
+            font-weight: bold;
+            border-radius: 10px; /* Add rounded corners for button shape */
+            padding: 10px 0px; /* Add padding to increase button size */
+}
+
+.navbar .nav-link:hover {
+      background-color: #D3D3D3; /* Change color on hover */
+      transform: scale(1.05); /* Scale up slightly on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+@media (max-width: 768px) {
+.navbar-toggler {
+            order: -1; /* This moves the toggler to the left side */
+        }
+    /* Background color for mobile screens */
+    .navbar {
+        background-color: blue; /* Replace with your preferred background color */
+    }
+    .navbar-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+        }
+    /* Text color for mobile screens */
+    .navbar-nav .nav-link {
+       background-color : white; /* Replace with your preferred text color */
+    }
+    #navbarNav{
+           background-color : white; /* Replace with your preferred text color */
+
+    }
+    /* Background color for login button on mobile screens */
+    #loginButton {
+        background-color: white; /* Replace with your preferred button color */
+        color: black;
+    }
+      #toggleFormsBtn2 {
+        background-color: #00b300; /* Replace with your preferred button color */
+        color: black;
+         border:  solid #00b300; /* Set the border color for the "Get Started" button */
+
+    }
+.navbar-nav.ml-auto .nav-item {
+       background-color : white; /* Replace with your preferred text color */
+}
+
+.navbar-nav.ml-auto .nav-item2 {
+       background-color : #00b300; /* Replace with your preferred text color */
+}
+
+
+ }
+
+
+}
+
+      .circular-logo {
+            text-align: center;
+        }
+    }
+}
+
+/* Custom styles for the modal */
+    /* Custom styles for the modal */
+    .custom-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-modal .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-modal .modal-header {
+        border-bottom: none;
+    }
+
+    .custom-modal .modal-title {
+        color: #007bff;
+        font-size: 24px;
+    }
+
+    .custom-modal .modal-body {
+        padding: 20px;
+    }
+
+    .custom-modal .form-group {
+        margin-bottom: 20px;
+    }
+
+    .custom-modal .input-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-modal .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .result-message {
+    /* Common styles for both success and error messages */
+    font-weight: bold;
+    padding: 10px;
+}
+
+.success-message {
+    /* Styles for success messages */
+    color: green;
+    background-color: lightgreen;
+}
+
+.error-message {
+    /* Styles for error messages */
+    color: red;
+    background-color: lightcoral;
+}
+.modal-title{
+
+color: blue;
+}
+
+/* Add these styles to your CSS file or style tag */
+.green-text {
+    color: green;
+}
+
+.blue-text {
+    color: black;
+}
+/* Custom styles for improved layout and design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .feature {
+            width: 80%;
+            text-align: center;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            padding: 30px;
+            font-size: 20px;
+            height:500px;
+        }
+
+        .feature img {
+            width: 50%;
+            margin-right: 100px;
+            height: 70%;
+            border-radius: 0px 50px 0 42px;
+        }
+
+        .feature .feature-details {
+            padding: 20px;
+            width: 50%;
+            text-align: left;
+        }
+
+        .feature h2 {
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .feature p {
+            color: #6c757d;
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .feature ul {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 24px;
+            transition: background-color 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                height:auto;
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .feature img {
+                border-radius: 12px 12px 0 0;
+                width: 100%;
+            }
+
+            .feature .feature-details {
+                width: 100%;
+                text-align: left;
+
+            }
+        }
+.stylish-text {
+    color: #080f1a;
+
+     font-weight: 600;
+     white-space: pre-line;
+     font-size: 45px;
+     line-height: 41px;
+      letter-spacing: -0.01em;
+           margin-top: -45px;
+
+     margin-bottom: 24px;
+      font-weight: 600;
+      text-align: left;
+}
+
+.stylish-text em {
+      background:#00b300;
+       font-style: normal;
+       webkit-background-clip: text;
+       background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        margin-bottom:10px;
+
+
+}
+.stylish-text strong {
+    word-break: break-all;
+}
+
+
+.stylish-header {
+    font-family: 'Your Stylish Font', sans-serif;
+    color:#00b300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px 0; /* Adjust the padding to decrease the height of the box */
+    font-size: 20px; /* Choose the desired font size */
+    background-color: transparent !important;
+    text-align:left;
+
+}
+
+.stylish-header::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 3px;
+    background-color: #ff7c43;
+    margin-top: 1px; /* Adjust the spacing between the header and the underline */
+}
+
+.css-1mmdw21 li {
+    margin-bottom: 16px;
+    font-weight: 500;
+    list-style-type: disc;
+    }
+.img-fluid {
+    border-radius: 20px; /* You can adjust this value for more or less rounded corners */
+    box-shadow: 20px 40px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for a lifted effect */
+
+}
+.container py-5 {
+margin-top:-20px;
+}
+
+ #toggleFormsBtn2 {
+        color: #000000; /* Default text color */
+    }
+
+    #toggleFormsBtn2:hover {
+        background-color: #000000; /* Black background color on hover */
+        color: #ffffff; /* White text color on hover */
+    }
+
+    .visually-hidden {
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: 50px;
+                            padding: 0;
+                            overflow: hidden;
+                            clip: rect(0, 0, 0, 0);
+                            border: 0;
+                          }
+
+  #loginForm .login-button-container {
+    text-align: right;
+  }
+
+  .forget-link{
+      text-align: left;
+
+  }

@@ -1,0 +1,465 @@
+
+.navbar-nav .nav-link {
+    padding: 0px 1px; /* Adjust padding as needed */
+}
+.custom-jumbotron {
+        height: 50px; /* Set the desired height in pixels */
+        padding: 10px; /* Adjust padding as needed to control the content placement */
+    }
+/* CSS for circular logo container */
+.circular-logo {
+    width: 100px; /* Adjust the size of the circular container as needed */
+    height: 100px; /* Adjust the size of the circular container as needed */
+    border-radius: 80%; /* Make it a circle */
+    overflow: hidden;
+}
+
+/* CSS for the logo image */
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+/* CSS to decrease the bottom height of the navbar */
+* CSS to decrease the bottom height of the navbar */
+.navbar {
+    padding-top: 0px; /* Adjust the top padding as needed */
+    padding-bottom: 0px; /* Adjust the bottom padding as needed */
+
+}
+
+ .navbar .nav-item {
+            margin-right: 20px;
+            margin-bottom: 10px;/* Add spacing between buttons */
+              box-shadow: 0 50px 305px rgba(0, 0, 0.5, 0.6);
+        }
+
+ .navbar .nav-link {
+            color: white; /* Set text color to white */
+            color: red; /* Text color */
+            font-weight: bold;
+            border-radius: 10px; /* Add rounded corners for button shape */
+            padding: 10px 0px; /* Add padding to increase button size */
+}
+
+.navbar .nav-link:hover {
+      background-color: #D3D3D3; /* Change color on hover */
+      transform: scale(1.05); /* Scale up slightly on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+@media (max-width: 768px) {
+.navbar-toggler {
+            order: -1; /* This moves the toggler to the left side */
+        }
+    /* Background color for mobile screens */
+    .navbar {
+        background-color: blue; /* Replace with your preferred background color */
+    }
+    .navbar-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+        }
+    /* Text color for mobile screens */
+    .navbar-nav .nav-link {
+       background-color : white; /* Replace with your preferred text color */
+    }
+    #navbarNav{
+           background-color : white; /* Replace with your preferred text color */
+
+    }
+    /* Background color for login button on mobile screens */
+    #loginButton {
+        background-color: white; /* Replace with your preferred button color */
+        color: black;
+    }
+      #toggleFormsBtn2 {
+        background-color: #00b300; /* Replace with your preferred button color */
+        color: black;
+         border:  solid #00b300; /* Set the border color for the "Get Started" button */
+
+    }
+.navbar-nav.ml-auto .nav-item {
+       background-color : white; /* Replace with your preferred text color */
+}
+
+.navbar-nav.ml-auto .nav-item2 {
+       background-color : #00b300; /* Replace with your preferred text color */
+}
+
+}
+
+.circular-logo {
+            text-align: center;
+ }
+    }
+}
+.stylish-header {
+    font-family: 'Your Stylish Font', sans-serif;
+    color:#00b300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px 0; /* Adjust the padding to decrease the height of the box */
+    font-size: 20px; /* Choose the desired font size */
+    background-color: transparent !important;
+    text-align:left;
+
+}
+.stylish-header::after {
+    content: '';
+    display: block;
+    width: 140px;
+    height: 3px;
+    background-color: #ff7c43;
+    margin-top: 1px; /* Adjust the spacing between the header and the underline */
+}
+ #toggleFormsBtn2 {
+        color: #000000; /* Default text color */
+    }
+
+    #toggleFormsBtn2:hover {
+        background-color: #000000; /* Black background color on hover */
+        color: #ffffff; /* White text color on hover */
+    }
+
+
+/* Custom styles for the modal */
+    /* Custom styles for the modal */
+    .custom-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-modal .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-modal .modal-header {
+        border-bottom: none;
+    }
+
+    .custom-modal .modal-title {
+        color: #007bff;
+        font-size: 24px;
+    }
+
+    .custom-modal .modal-body {
+        padding: 20px;
+    }
+
+    .custom-modal .form-group {
+        margin-bottom: 20px;
+    }
+
+    .custom-modal .input-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-modal .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .result-message {
+    /* Common styles for both success and error messages */
+    font-weight: bold;
+    padding: 10px;
+}
+
+.success-message {
+    /* Styles for success messages */
+    color: green;
+    background-color: lightgreen;
+}
+
+.error-message {
+    /* Styles for error messages */
+    color: red;
+    background-color: lightcoral;
+}
+.modal-title{
+
+color: blue;
+}
+
+/* Add these styles to your CSS file or style tag */
+.green-text {
+    color: green;
+}
+
+.blue-text {
+    color: black;
+}
+ .visually-hidden {
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: 50px;
+                            padding: 0;
+                            overflow: hidden;
+                            clip: rect(0, 0, 0, 0);
+                            border: 0;
+                          }
+
+  #loginForm .login-button-container {
+    text-align: right;
+  }
+
+  .forget-link{
+      text-align: left;
+
+  }
+
+
+
+
+/* styles of market page */
+
+
+ .col-md-6:first-child {
+        margin-left: 0px;
+    }
+.centered-text {
+        text-align: left;
+        color:black;
+    }
+h4 {
+    margin-top: 20px; /* Adjust the value as needed */
+}
+
+.custom-table {
+    }
+    /* Adjust size for the table headers */
+
+.custom-hr {
+        border-top: 3px solid black; /* Increase width and set color to black */
+    }
+
+select.form-select option {
+        margin-bottom: 51px; /* Adjust the value as needed */
+    }
+/* Table styles */
+        .table-container {
+            box-shadow: 5px 5px 30px #888888;
+            margin-left:20px;
+
+        }
+        .table-container2 {
+            box-shadow: 5px 5px 20px #888888;
+               margin-bottom: 80px; /* Adjust the value based on the amount of space you want */
+            width: 120%;
+        }
+
+        .table,table2 {
+            border-collapse: collapse;
+            border: 2px solid green;
+        }
+
+
+       .table th, .table td, .table2 th, .table2 td {
+       padding: 15px;
+           font-size: 16px; /* Adjust the font size to make text more prominent */
+
+       text-align: left;
+}
+        .table th ,.table2 th{
+             background-color: #00FF55;
+             font-size:16px;
+             font-weight: normal;
+             color: purple;
+
+
+
+        }
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    background-color: #2ecc71; /* Green background color */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.card-table td:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+        /* Media query for mobile screens */
+        @media (max-width: 767px) {
+            .table-container2 {
+                display: none; /* Hide the table on mobile screens */
+            }
+
+            /* Show Card 1 and Card 2 on mobile screens */
+            .card-mobile {
+                display: block;
+            }
+
+
+        }
+
+        /* Media query for larger screens like laptops */
+        @media (min-width: 768px) {
+            .table-container2 {
+                display: block; /* Show the table on larger screens */
+            }
+
+            /* Hide Card 1 and Card 2 on larger screens */
+            .cardd-container {
+                display: none;
+            }
+
+
+  .custom-select-wrapper1 {
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style the custom-select elements */
+.custom-select {
+  appearance: none;
+  background-color: #f4f4f4;
+  border: 0px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 20px 10px 10px;
+  width: 70%;
+  margin:10px;
+  font-size:20px;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.5s, box-shadow 0.3s;
+}
+
+.custom-select:hover {
+  border-color: green;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: green;
+  box-shadow: 0 0 80px rgba(0, 123, 255, 0.3);
+}
+
+/* Style the select options */
+.custom-select option {
+  padding: 10px;
+  color: green;
+  background-color: #fff;
+}
+
+.col-md-4 {
+    margin-left: 40px; /* Adjust the margin as needed */
+  }
+  @media (max-width: 767px) {
+    .col-md-4 {
+      margin-left: 50px; /* Adjust the margin as needed */
+    }
+
+  }
+
+        }
+@media (max-width: 767px) {
+
+    .btn-custom11 {
+        color: white; /* Button text color */
+        width: 100%; /* Make the button full width on small screens */
+        margin-top: 10px;
+        margin-bottom:10px;
+
+    }
+  }
+@media (min-width: 767px) {
+
+    .btn-custom11 {
+        color: white; /* Button text color */
+        width: 30%; /* Make the button full width on small screens */
+        margin-top: 10px;
+        margin-bottom:29px;
+         margin-left: 400px;
+          margin-right: 50px;
+          align:right;
+    }
+  }
+.row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+h6 {
+    font-size: 16px; /* Adjust the font size as needed */
+    font-weight: normal; /* Adjust the font weight as needed */
+    color: #333; /* Adjust the text color as needed */
+    margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Make sure it's above other elements */
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #007bff; /* Adjust color as needed */
+    border-radius: 50%;
+    width: 40px; /* Increase the width for better visibility */
+    height: 40px; /* Increase the height for better visibility */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px; /* Half of the height */
+    margin-left: -20px; /* Half of the width */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1, user-scalable=no">
+  <title>User Profile</title>
+       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css">
+<script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/my-profile.css">
+    <link rel="stylesheet" type="text/css" href="static/payment.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+
+
+<script src="static/forgotpassword.js"></script>
+        <script src="static/register.js"></script>
+        <script src="static/sendemail.js"></script>
+            <script src="static/my-proile.js"></script>
+                <script src="static/payment.js"></script>
+                    <script src="static/states-city-data.js"></script>
+  <script src="static/buyer-selected.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
+    <!-- Your jumbotron content goes here -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <div class="circular-logo">
+                     <img src="static/images/logo.png" alt="Your Logo" width="120" height="120">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation" onclick="toggleLoginButton()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active ">
+                    <a class="nav-link " href="#" > 🏠 Home </a>
+                    <span class="stylish-header"></span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../market/market.html"> 🏢 Market Trend</a>
+
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../about-us/index.html">❓About Us</a>
+                </li>
+            </ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item2 text-center">
+                    <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn2" data-target="#signInModal">Get Started</a>
+            </li>
+        </ul>
+
+    </div>
+
+           <ul class="navbar-nav ml-auto" id="loginButtonContainer">
+            <li class="nav-item text-center">
+                  <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms4()" id ="loginButton" data-target="#signInModal"> 👤Log In</a>
+           </li>
+            <li class="nav-item text-center" id="userProfileDropdown" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-light mx-2 dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            👤 Hi, <span id="userName"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                   </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    function submitForm(event) {
+  event.preventDefault();
+  // You can add code here to send the form data to your email or server
+  showSuccessMessage();
+}
+
+function showSuccessMessage() {
+  const successMessage = document.getElementById('successMessage');
+  const formContainer = document.getElementById('contactForm');
+
+  successMessage.style.display = 'block';
+
+  setTimeout(() => {
+    successMessage.style.display = 'none';
+  }, 4000); // Hide the success message after 3 seconds
+
+  setTimeout(() => {
+    formContainer.style.display = 'none';
+  }, 300); // Hide the form after 1 second
+}
+function closeForm() {
+  const formContainer = document.getElementById('contactForm');
+  formContainer.style.display = 'none';
+}
+    function toggleLoginButton() {
+        var loginButtonContainer = document.getElementById("loginButtonContainer");
+        if (loginButtonContainer.style.display === "none") {
+            loginButtonContainer.style.display = "block";
+        } else {
+            loginButtonContainer.style.display = "none";
+        }
+    }
+</script>
+<div class="container">
+
+<button type="button" id="CartButton">
+  <i class="fas fa-cart-plus CartButton"></i>
+</button>
+<button type="button" id="favouritesButton">
+  <i class="fas fa-star favouritesButton"></i>
+</button>
+</div>
+<script>
+ document.getElementById('CartButton').addEventListener('click', function() {
+    $('#cartModal').modal('show');
+  });
+</script>
+<div class="container profile-container">
+
+    <div class="row g-0">
+        <div class="input-group mb-3">
+    <select class="custom-select" id="itemDropdown">
+        <option value="" disabled selected>--Select Item--</option>
+        <!-- Add your JSON data dynamically here -->
+    </select>
+    <div class="input-group-prepend">
+        <span class="input-group-text">Or</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Type your own item" aria-label="Type your own item" aria-describedby="searchButton">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+    </div>
+</div>
+        <script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+        var selectedItem = document.getElementById('itemDropdown').value;
+        var typedItem = document.querySelector('.form-control').value;
+
+        if (selectedItem && typedItem) {
+            // Handle both cases: selectedItem and typedItem
+             alert('Please select only one option. Either choose from the dropdown or type your own item.');
+            return;
+        } else if (selectedItem) {
+            var selectedCropNameElement = document.getElementById('selectedcropname');
+                // Change the text of the h2 element with the entered crop name
+                selectedCropNameElement.innerText = selectedItem;
+        } else if (typedItem) {
+             var typedCropNameElement = document.getElementById('selectedcropname');
+                // Change the text of the h2 element with the entered crop name
+                typedCropNameElement.innerText = typedItem;
+        } else {
+            // Handle no selection or input
+            alert('Please select an item or type your own item.');
+        }
+
+
+    });
+</script>
+        <div class="col-md-6">
+            <div class="card profile-card">
+                <div class="cover-image-container">
+                    <img id="coverImage" src="static/images/farm1.png" alt="Cover Image" class="card-img-top cover-image">
+                </div>
+                <div class="card-body profile-body">
+                    <h2 class="card-title profile-details" id="selectedcropname"><i class="profile-icons"></i> Singh</h2>
+                    <!-- Filter By Input Group -->
+                    <!-- Price Range Slider -->
+                    <div id="price-range">
+                        <label for="amount-container">Price Range:</label>
+                        <div id="amount-container">
+                            <div id="amount-box">
+                                <span id="min-amount">Min: Rs 0</span> to
+                                <span id="max-amount">Max: Rs 1000</span>
+                            </div>
+                        </div>
+                        <div id="slider"></div>
+                    </div>
+                    <div id="qprice-range">
+                        <label for="qamount-container">Quantity Range:</label>
+                        <select id="quantity-unit">
+                            <option value="Gram">Gram (g)</option>
+                            <option value="kilogram">kilogram (kg)</option>
+                            <option value="Quintal">Quintal (q)</option>
+                        </select>
+                        <div id="qamount-container">
+                            <div id="qamount-box">
+                                <span id="qmin-amount">Min: Rs 0</span> to
+                                <span id="qmax-amount">Max: Rs 1000</span>
+                            </div>
+                        </div>
+                        <div id="qslider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <div class="card edit-form" style="overflow-x: auto;">
+                <h2 class="card-title profile-details"><i class="profile-icons"></i>Search Results</h2>
+
+                <div class="farmer-cards-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function toggleFavorite(icon) {
+   // Toggle the color of the favorite icon on click
+   icon.classList.toggle('favorite-selected');
+}
+</script>
+<script>
+    $(function() {
+        var minPrice = 0;
+        var maxPrice = 1000;
+
+        var slider = document.getElementById('slider');
+
+        noUiSlider.create(slider, {
+            start: [minPrice, maxPrice],
+            connect: true,
+            range: {
+                'min': minPrice,
+                'max': maxPrice
+            }
+        });
+
+         slider.noUiSlider.on('update', function(values, handle) {
+            var minText = (parseInt(values[0]) === minPrice) ? 'Min' : 'Rs ' + values[0];
+            var maxText = (parseInt(values[1]) === maxPrice) ? 'Max' : 'Rs ' + values[1];
+
+            $("#min-amount").text(minText);
+            $("#max-amount").text(maxText);
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+        var minquantity = 0;
+        var maxquantity = 1000;
+
+        var qslider = document.getElementById('qslider');
+
+        noUiSlider.create(qslider, {
+            start: [minquantity, maxquantity],
+            connect: true,
+            range: {
+                'min': minquantity,
+                'max': maxquantity
+            }
+        });
+
+        qslider.noUiSlider.on('update', function(values, handle) {
+            var minText = (parseInt(values[0]) === minquantity) ? 'Min' : values[0];
+            var maxText = (parseInt(values[1]) === maxquantity) ? 'Max' : values[1];
+
+            $("#qmin-amount").text('' + minText);
+            $("#qmax-amount").text('' + maxText);
+        });
+    });
+    // Handle quantity unit change
+    $("#quantity-unit").change(function() {
+        var selectedUnit = $(this).val();
+        console.log("Selected Quantity Unit: " + selectedUnit);
+        // You can perform additional actions based on the selected unit if needed
+    });
+</script>
+<!-- cart Delete Confirmation Modal -->
+<div class="modal fade" id="addtocartModal" tabindex="-1" role="dialog" aria-labelledby="addtocartModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-body addtocarttext-center">
+    <p class="addtocarttext-success mb-0"><i class="fas fa-cart-plus"></i> Successfully added to cart</p>
+    <p class="text-danger mb-0">Go to cart <span id="addtocartItemName" class="cart-link">here</span></p>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="addtocartmodalclose" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Modal -->
+
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+
+      </div>
+      <div class="modal-body">
+        <!-- Cart Items List -->
+        <ul id="cartItemList" class="list-group">
+          <!-- Cart items will be dynamically added here -->
+        </ul>
+        <!-- Total Price -->
+        <p class="text-right mt-3">Total: <span id="cartTotal">Rs 0</span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cartmodalclose" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    // Add an event listener to the "here" link
+    $('#addtocartItemName').on('click', function () {
+        // Show the modal when the link is clicked
+        $('#cartModal').modal('show');
+        $('#addtocartModal').modal('hide');
+
+    });
+    $('#cartmodalclose').on('click', function () {
+        // Show the modal when the link is clicked
+        $('#cartModal').modal('hide');
+    });
+</script>
+</body>
+</html>
