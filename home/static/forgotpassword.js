@@ -34,7 +34,7 @@ function sendforgotEmailVerification() {
         // Use AJAX to send the email verification request to Flask endpoint
         $.ajax({
             type: 'POST',
-            url: '/send-forgotpass-email-verification',
+            url: 'http://192.168.1.6:5001/send-forgotpass-email-verification',
             data: { email: femail},
             success: function (response) {
                 console.log(response);

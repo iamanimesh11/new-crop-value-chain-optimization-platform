@@ -5,6 +5,7 @@ var isOTPVerified = false;
 function sendEmailVerification() {
      var name = document.getElementById("registerName").value;
     var email = document.getElementById("registerEmail").value;
+    var password =document.getElementById("registerPassword").value;
 
     document.getElementById('submitBtn').disabled = true;
      if (name === "" || email === "" ) {
@@ -25,7 +26,7 @@ function sendEmailVerification() {
         $.ajax({
             type: 'POST',
             url: '/send-email-verification',
-            data: { email: email ,name: name},
+            data: { email: email ,name: name,password: password},
             success: function (response) {
                 console.log(response);
                 messageElement.innerHTML = '<div class="alert alert-success" role="alert">OTP sent successfully!</div>';
@@ -54,7 +55,8 @@ function sendEmailVerification() {
     function verifyEmailOTP() {
         var email = document.getElementById('registerEmail').value;
         var enteredOTP = document.getElementById('verifyEmailOTP').value;
-
+        var name = document.getElementById("registerName").value;
+        var password =document.getElementById("registerPassword").value;
         // Add a message element to show the status
         var messageElement = document.getElementById('message');
         messageElement.innerHTML = ''; // Clear previous messages
@@ -88,8 +90,9 @@ function sendEmailVerification() {
     var name = document.getElementById("registerName").value;
     var email = document.getElementById("registerEmail").value;
     var password = document.getElementById("registerPassword").value;
+    var chooseProfile = document.getElementById("chooseProfile").value;
 
-    if (name === "" || email === "" || password === "") {
+    if (name === "" || email === "" || password === ""||chooseProfile=== "") {
         // Display error message in red
         document.getElementById("message").innerHTML = "<span style='color: red;'>Please fill all fields.</span>";
         return;
@@ -103,17 +106,38 @@ function sendEmailVerification() {
         return;
     }
 
-    document.getElementById("registerForm").style.display = "none";
-    // Show the "Thank you" message with a specific text color
-    var successMessage = document.getElementById("registrationSuccessMessage");
-    successMessage.innerHTML = "Thank you for registering! Now you can log in.";
-    successMessage.style.color = "green";  // Change the color to your desired value
-
-    document.getElementById("registrationSuccess").style.display = "block";
-
-
-
-
+    $.ajax({
+        type: 'POST',
+        url: '/register',
+        data: { email: email, name: name, password: password, chooseProfile: chooseProfile },
+        success: function (response) {
+            console.log(response);
+            if (response.success) {
+                // Registration successful, display the success message
+                document.getElementById("registerForm").style.display = "none";
+                var successMessage = document.getElementById("registrationSuccessMessage");
+                successMessage.innerHTML = "Thank you for registering! Now you can log in.";
+                successMessage.style.color = "green";
+                document.getElementById("registrationSuccess").style.display = "block";
+            } else {
+                // Registration failed, display the error message
+                if (response.message.includes("Email already registered")) {
+                    document.getElementById("message").innerHTML = "<span style='color: red;'>" + response.message + "</span>";
+                } else {
+                    document.getElementById("message").innerHTML = "<span style='color: red;'>Failed to complete registration. Please try again.</span>";
+                }
+            }
+        },
+        error: function (xhr, textStatus, error) {
+        console.error(xhr.responseText);
+        // Check the status code to determine the type of error
+        if (xhr.status === 400) {
+            document.getElementById("message").innerHTML = "<span style='color: red;'>" + xhr.responseJSON.message + "</span>";
+        } else {
+            document.getElementById("message").innerHTML = "<span style='color: red;'>Failed to complete registration. Please try again.</span>";
+        }
+    }
+});
 
 }
 

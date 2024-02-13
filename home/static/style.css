@@ -156,10 +156,16 @@
     }
 
     .custom-modal .modal-content {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha value (0 to 1) to control transparency */
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     }
+   .modal-content label {
+    color: #000; /* Black color for labels */
+    font-weight: 500; /* Bold font weight */
+}
+
+
 
     .custom-modal .modal-header {
         border-bottom: none;

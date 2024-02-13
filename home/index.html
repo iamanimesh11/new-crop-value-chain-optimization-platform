@@ -11,7 +11,6 @@
     <script src="static/register.js"></script>
     <script src="static/forgotpassword.js"></script>
 
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -22,6 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="static/global.js"></script>
+
 </head>
 <body>
 <div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
@@ -78,7 +79,7 @@
                             <a class="dropdown-item" href="#">Profile</a>
                             <a class="dropdown-item" href="#">Dashboard</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                            <a class="dropdown-item" id ="logout" href="#" onclick="logout()">Logout</a>
                         </div>
                    </div>
             </li>
@@ -102,7 +103,7 @@
         <header class="text-succes font-weight-bold mb-3  stylish-header">AgriTech - AI powered Support to Agriculture</header>
             <h1 class="text-dark font-weight-bold stylish-text">
                 <em>Combine AI and Agricultre</em>
-                for excellent customer service
+                for excellent Value Chain Optimization
             </h1>
             <div class="mb-4">
                 <ul class="css-1mmdw21 eu7cptq2">
@@ -178,10 +179,6 @@
         </div>
     </section>
 
-
-
-
-
 <!-- Sign In/Sign Up Modal -->
 <div class="modal fade custom-modal" id="signInModal"  tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -233,10 +230,7 @@
                              <div class="login-button-container">
                                 <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Login</button>
                              </div>
-
-
                       </form>
-
                     </div>
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                         <!-- Registration form -->
@@ -266,6 +260,23 @@
                                 Please create a password.
                             </div>
                         </div>
+                        <!-- Add the new profile dropdown field with additional text -->
+    <div class="form-group">
+        <label for="chooseProfile">Choose Profile</label>
+        <div class="input-group">
+            <span class="input-group-prepend">
+                <span class="input-group-text">I am a</span>
+            </span>
+            <select class="form-control" id="chooseProfile" required>
+                <option value="" selected disabled>Select your profile</option>
+                <option value="farmer">Farmer/Seller</option>
+                <option value="buyer">Buyer/Trader</option>
+            </select>
+        </div>
+        <div class="invalid-feedback">
+            Please choose a profile.
+        </div>
+    </div>
 
                         <div class="form-group">
                             <label for="verifyEmailOTP">Verify Email by OTP</label>
@@ -273,29 +284,26 @@
                                 <input type="text" class="form-control" id="verifyEmailOTP" placeholder="Enter OTP" required>
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-primary btn-block" id="verifyButton" onclick="sendEmailVerification()">
-                                      <span id="verifyButtonContent">Send OTP</span>
+                                      <span id="verifyButtonContent">Get OTP</span>
                                       <span id="verifyButtonSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
                                    </button>
                                 </div>
                             </div>
-                            <small id="otpHelp" class="form-text text-muted">An OTP will be sent to your email.</small>
+                            <small id="otpHelp" class="form-text text-muted">An OTP will be sent to your email inbox or check spam</small>
                         </div>
 
                         <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitRegisterForm()">Sign Up</button>
                          <div id="message"></div>
-
                     </form>
                     </div>
                 </div>
             </div>
             <div id="registrationSuccess" style="display: none;">
-    <p id="registrationSuccessMessage">Thank you for registering! Now you can log in.</p>
-                        </div>
+               <p id="registrationSuccessMessage">Thank you for registering! Now you can log in.</p>
+            </div>
             <div class="modal-footer">
                 <!-- Inside the Login form -->
-
              <button type="button" class="btn btn-link" onclick="toggleForms()" id="toggleFormsBtn">Don't have an account? Sign Up</button>
-
             </div>
         </div>
     </div>
@@ -330,7 +338,7 @@
                         <input type="text" class="form-control" id="fverifyEmailOTP" placeholder="Enter OTP">
                         <div class="input-group-append">
                           <button type="button" class="btn btn-primary btn-block" id="fverifyButton" onclick="sendforgotEmailVerification()">
-                            <span id="fverifyButtonContent">Send OTP</span>
+                            <span id="fverifyButtonContent">Get OTP</span>
                             <span id="fverifyButtonSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
                           </button>
                         </div>
@@ -441,7 +449,7 @@
 
     // Your AJAX request to the server for login
     $.ajax({
-        url: '/login', // Your server endpoint
+        url: 'http://localhost:5001/login', // Your server endpoint
         type: 'POST',
         data: {
             email: email,
@@ -456,6 +464,7 @@
         userNamePlaceholder.text(response.full_name);
         userNamePlaceholder.addClass('green-text');
 
+
         const restOfText = $('<span>', { text: ' Good to see you again., ', class: 'blue-text' });
 
         // Create a new span for "Welcome"
@@ -463,6 +472,15 @@
 
         // Append the welcome span, user name, and rest of the text
         $('#loginSuccessMessage').empty().append(welcomeSpan).append(userNamePlaceholder).append(restOfText);
+
+        sessionStorage.setItem('isLoggedIn', 'true');
+        sessionStorage.setItem('userName', response.full_name);
+        sessionStorage.setItem('userid', response.userid);
+        sessionStorage.setItem('farmerid', response.farmer_id);
+
+
+
+        window.location.href = '../my-profile/my-profile.html'; // Update the URL as needed
 
             // Login successful, hide the login form and show the success message
             $('#loginForm').hide();
@@ -472,9 +490,6 @@
                 $('#loginButton').hide();
                     $('#userProfileDropdown').show();
                         $('#userName').text(response.full_name);
-
-
-
     } else {
         // Invalid email or password, show error under the password input
         $('#loginError').text('Invalid email or password');
@@ -482,6 +497,7 @@
 },
     error: function () {
             // Handle error
+            $('#loginError').text('Error during login ,Try again later');
             console.log('Error during login');
         }
         });

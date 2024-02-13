@@ -349,3 +349,31 @@ function customURIEncode(value) {
 
    searchButton.addEventListener('click', handleSearchButtonClick);
 });
+// Function to check the user's login status
+function checkLoginStatus() {
+    $.ajax({
+        url: 'http://127.0.0.1:5000/check_login_status',  // Your server endpoint for checking login status
+        type: 'GET',
+        success: function (response) {
+            if (response.status === 'success') {
+                // User is logged in, show the appropriate UI elements
+                $('#loginButton').hide();
+                $('#userProfileDropdown').show();
+                $('#userName').text(response.full_name);  // Assuming the full name is included in the response
+            } else {
+                // User is not logged in, show the login button
+                $('#loginButton').show();
+                $('#userProfileDropdown').hide();
+            }
+        },
+        error: function () {
+            // Handle error
+            console.log('Error checking login status');
+        }
+    });
+}
+
+// Call the function on document ready to check the login status when the page loads
+$(document).ready(function () {
+    checkLoginStatus();
+});

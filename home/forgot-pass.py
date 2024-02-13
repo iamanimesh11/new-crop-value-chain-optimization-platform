@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 from flask_mail import Mail, Message
 import random
 import string
+import mysql.connector
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__, template_folder='.', static_folder='static')
 
@@ -14,12 +16,11 @@ app.config['MAIL_USERNAME'] = 'agritechbazaar@gmail.com'  # Replace with your em
 app.config['MAIL_PASSWORD'] = 'cnbd oncd lsvt nsis'  # Replace with your email password
 
 mail = Mail(app)
-fusers = {
-    'animeshm27singh@gmail.com': {
-        'password': '12345',
-        'full_name': 'Animesh'
-        'otp'
-    }
+db_config = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '',
+    'database': 'user_registration_db'
 }
 # Store generated verification codes (in-memory for simplicity, consider using a database)
 fverification_codes = {}
@@ -33,33 +34,39 @@ def index():
 @app.route('/send-forgotpass-email-verification', methods=['POST'])
 def send_email_verification():
     femail = request.form.get('email')
-    fverification_code = generate_verification_code()
-    # Check if the email exists in your user data
-    if femail not in fusers:
-        return jsonify({'status': 'error', 'message': 'Invalid email '})
-    # Store the verification code for later verification
-    fverification_codes[femail] = fverification_code
 
-    user_data = fusers[femail]
-    fname = user_data['full_name']
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
 
-    # Email content
-    msg = Message('Email Verification Code', sender='your-email@gmail.com', recipients=[femail])
-    # Use HTML and include styling
-    # Render HTML from template
-    msg.html = render_template(
-        'static/forgotpass_template.html',
-        name=fname,
-        email=femail,
-        verification_code=fverification_code
-    )
+    try:
+        cursor.execute('SELECT * FROM users WHERE email = %s', (femail,))
+        user_data = cursor.fetchone()
 
+        if user_data is None:
+            return jsonify({'status': 'error', 'message': 'Invalid email address'})
 
-    # Send the email
-    mail.send(msg)
+        fverification_code = generate_verification_code()
 
+        fverification_codes[femail] = fverification_code
 
-    return 'Email sent successfully'
+        fname = user_data[1]
+
+        msg = Message('Email Verification Code', sender='your-email@gmail.com', recipients=[femail])
+        # Use HTML and include styling
+        # Render HTML from template
+        msg.html = render_template(
+            'static/forgotpass_template.html',
+            name=fname,
+            email=femail,
+            verification_code=fverification_code
+        )
+        mail.send(msg)
+
+        return 'Email sent successfully'
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': f'Failed to send verification email: {str(e)}'}), 500
+    finally:
+        conn.close()
 
 
 @app.route('/fverify-email-otp', methods=['POST'])
@@ -76,7 +83,6 @@ def fverify_email_otp():
     else:
         return 'Invalid verification code.', 400
 
-
 def generate_verification_code():
     return ''.join(random.choices( string.digits, k=6))
 
@@ -86,16 +92,30 @@ def reset_password():
     femail = request.form.get('femail')
     new_password = request.form.get('fpassword')
 
-    # Check if the email exists in your user data
-    if femail not in fusers:
-        return jsonify({'status': 'error', 'message': 'Invalid email address'}), 400
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
 
-    # Update the password in your user data
-    fusers[femail]['password'] = new_password
+    try:
+        cursor.execute('SELECT * FROM users WHERE email = %s', (femail,))
+        user_data = cursor.fetchone()
 
-    return jsonify({'status': 'success', 'message': 'Password reset successfully'})
+        if user_data is None:
+            return jsonify({'status': 'error', 'message': 'Invalid email address'}), 400
 
+        # Hash and salt the new password before updating the database
+        hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256')
+
+        # Update the password in the database
+        cursor.execute('UPDATE users SET password = %s WHERE email = %s', (hashed_password, femail))
+        conn.commit()
+
+        return jsonify({'status': 'success', 'message': 'Password reset successfully'})
+    except Exception as e:
+        conn.rollback()
+        return jsonify({'status': 'error', 'message': f'Failed to reset password: {str(e)}'}), 500
+    finally:
+        conn.close()
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000,debug=True)
+    app.run(host='0.0.0.0',port=5001,debug=True)

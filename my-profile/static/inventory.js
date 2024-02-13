@@ -37,8 +37,8 @@ function handleOtherCheckbox() {
 function edithandleOtherCheckbox() {
   const otherCheckbox = document.getElementById('editotherCheckbox');
   const otherItemInput = document.getElementById('editotherItemInput');
-    const itemNameDropdown = document.getElementById('edititemName');
-    const itemlabel = document.getElementById('edititemlabel');
+  const itemNameDropdown = document.getElementById('edititemName');
+  const itemlabel = document.getElementById('edititemlabel');
 
   itemNameDropdown.style.display = otherCheckbox.checked ? 'none' : 'block';
   itemlabel.style.display = otherCheckbox.checked ? 'none' : 'block';
@@ -84,6 +84,7 @@ populateDropdown(document.getElementById('edititemName'), jsonData.element_conte
 
 // Function to handle form submission
 function submitItemForm() {
+  var farmerid = sessionStorage.getItem('farmerid');
 
   const itemNameDropdown = document.getElementById('itemName');
   const otherCheckbox = document.getElementById('otherCheckbox');
@@ -92,9 +93,7 @@ function submitItemForm() {
   const rawItemQuantity = document.getElementById('itemQuantity').value;
   const rawItemPrice = document.getElementById('itemtPrice').value;
 
-   const errorMessageElement = document.getElementById('errorMessage');
-
-  // Validate and add the item to the inventory table
+  const errorMessageElement = document.getElementById('errorMessage');
   const validationError = validateForm(itemName, rawItemQuantity, rawItemPrice);
   if (validationError) {
     errorMessageElement.textContent = validationError;
@@ -104,31 +103,72 @@ function submitItemForm() {
   const itemQuantity = parseInt(rawItemQuantity, 10);
   const itemtPrice = parseInt(rawItemPrice, 10);
   const quantityUnit = document.getElementById('quantityUnit').value;
-
   const existingRow = findExistingRow(itemName);
-
 if (existingRow) {
   document.getElementById('updateConfirmationItemName').textContent = itemName;
-
   document.getElementById('confirmUpdateButton').onclick = function () {
-    updateExistingRow(existingRow, itemQuantity, itemtPrice, quantityUnit);
-    $('#updateConfirmationModal').modal('hide');
+   var farmerid = sessionStorage.getItem('farmerid');
+    const itemname= document.getElementById('updateConfirmationItemName').textContent;
+   $.ajax({
+    type: 'POST',
+    url: 'http://127.0.0.1:5003/edit-item',
+    data: {
+      farmerid: farmerid,
+      itemname:itemname,
+      itemQuantity: itemQuantity,
+      itemtPrice: itemtPrice,
+      quantityUnit: quantityUnit,
+    },
+    success: function (response) {
+      // Handle success response
+       updateExistingRow(existingRow, itemQuantity, itemtPrice, quantityUnit);
+    },
+    error: function (error) {
+      // Handle error response
+      console.error(error);
+    },
+  });
+      $('#updateConfirmationModal').modal('hide');
   };
+
   document.getElementById('updateCancelModalButton').onclick = function () {
     $('#updateConfirmationModal').modal('hide');
   };
   $('#updateConfirmationModal').modal('show');
 } else {
-  createNewRow(itemName, itemQuantity, itemtPrice, quantityUnit);
-}
+  showSpinner(); // Show spinner when starting to fetch data
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:5003/add-item',  // Replace with your server endpoint
+            data: {
+                farmerid:farmerid,
+                itemName: itemName,
+                itemQuantity: itemQuantity,
+                itemPrice: itemtPrice,
+                quantityUnit:quantityUnit
+            },
+            success: function (response) {
+                // Handle success, e.g., show a success message
+  hideSpinner();
+
+                fetchDataAndDisplayTable();
+                createNewRow(itemName, itemQuantity, itemtPrice, quantityUnit);
+            },
+            error: function (error) {
+                // Handle error, e.g., show an error message
+                  hideSpinner();
+
+                console.log('Error adding item: ' + error.responseJSON.message);
+            }
+        });
+    }
   $('#addItemModal').modal('hide');
   document.getElementById('itemForm').reset();
 
     updateCardView();
 
 }
-
-// Function to validate form inputs
 function validateForm(itemName, rawItemQuantity, rawItemPrice) {
   if (itemName === "--Select Item--") {
     return 'Please Select Item';
@@ -166,19 +206,27 @@ function updateExistingRow(existingRow, itemQuantity, itemtPrice, quantityUnit) 
   existingRow.cells[2].textContent = '₹ ' + Math.round(itemtPrice / itemQuantity) + '/' + quantityUnit;
   existingRow.cells[3].textContent = '₹ ' + itemtPrice;
 }
+function createRowsForItems(items) {
+  const tableBody = document.getElementById('inventoryTableBody');
+  tableBody.innerHTML = '';
 
+  items.forEach(item => {
+    const newRow = createNewRow(item.item_name, item.quantity, item.total_price, item.quantityunit);
+    tableBody.appendChild(newRow);
+  });
+}
 // Function to create a new table row for the item
-function createNewRow(itemName, itemQuantity, itemtPrice, quantityUnit) {
+function createNewRow(itemName, itemQuantity, itemtPrice, quantityunit) {
   const newRow = document.createElement('tr');
 
   const nameCell = document.createElement('td');
   nameCell.textContent = itemName;
 
   const quantityCell = document.createElement('td');
-  quantityCell.textContent = itemQuantity + ' ' + quantityUnit;
+  quantityCell.textContent = itemQuantity + ' ' + quantityunit;
 
   const priceCell = document.createElement('td');
-priceCell.textContent = '₹ ' + Math.round(itemtPrice / itemQuantity) + '/' + quantityUnit;
+priceCell.textContent = '₹ ' + Math.round(itemtPrice / itemQuantity) + '/' + quantityunit;
 
   const tpriceCell = document.createElement('td');
   tpriceCell.textContent = '₹ ' + itemtPrice;
@@ -207,9 +255,35 @@ priceCell.textContent = '₹ ' + Math.round(itemtPrice / itemQuantity) + '/' + q
   newRow.appendChild(editButtonCell);
 
   // Append the new row to the table body
-  document.getElementById('inventoryTableBody').appendChild(newRow);
+return newRow;
 }
+// Add event listener to execute the function when the page loads
+$(document).ready(function () {
+  fetchDataAndDisplayTable();
+});
+// Function to fetch data from the server and display table rows
+function fetchDataAndDisplayTable() {
+  var farmerid = sessionStorage.getItem('farmerid');
+    showSpinner(); // Show spinner when starting to fetch data
 
+  $.ajax({
+    type: 'GET',
+    url: 'http://127.0.0.1:5003/get-items',
+   data: {farmerid: farmerid},  // Send userId as a data parameter
+
+    success: function (response) {
+      hideSpinner();
+
+      createRowsForItems(response.items);
+      updateCardView(); // Update card view after displaying table rows
+    },
+    error: function (error) {
+      hideSpinner();
+
+      console.error(error);
+    },
+  });
+}
 
 // Function to create an "Edit" button for a row
 function createEditButton(row) {
@@ -293,7 +367,6 @@ function submitEditedItem(row) {
   const otherItemInput = document.getElementById('editotherInput');
   const rawItemQuantity = document.getElementById('edititemQuantity').value;
   const rawItemPrice = document.getElementById('edititemtPrice').value;
-
   const errorMessageElement = document.getElementById('editerrorMessage');
 
 
@@ -307,40 +380,81 @@ function submitEditedItem(row) {
   const itemQuantity = parseInt(rawItemQuantity, 10);
   const itemtPrice = parseInt(rawItemPrice, 10);
   const quantityUnit = document.getElementById('editquantityUnit').value;
+   const itemname=row.cells[0].textContent;
+   var farmerid = sessionStorage.getItem('farmerid');
 
-  // Update the existing row with the new values
-  updateExistingRow(row, itemQuantity, itemtPrice, quantityUnit);
+   $.ajax({
+    type: 'POST',
+    url: 'http://127.0.0.1:5003/edit-item',
+    data: {
+      farmerid: farmerid,
+      itemname:itemname,
+      itemQuantity: itemQuantity,
+      itemtPrice: itemtPrice,
+      quantityUnit: quantityUnit,
+    },
+    success: function (response) {
+      // Handle success response
+       updateExistingRow(row, itemQuantity, itemtPrice, quantityUnit);
+         updateCardView();
 
-  // Hide the form after submission
+    },
+    error: function (error) {
+      // Handle error response
+      console.error(error);
+    },
+  });
+
+  // Hide the edit item modal
   $('#editItemModal').modal('hide');
-  document.getElementById('itemForm').reset();
-
-  updateCardView();
+  document.getElementById('edititemForm').reset();
 }
+
 
 // Function to handle delete button click
 function handleDelete(row) {
-  // Set the item name in the modal
   document.getElementById('deleteConfirmationItemName').textContent = row.cells[0].textContent;
-
-  // Set up event listener for confirm delete button
+const itemname=row.cells[0].textContent;
   document.getElementById('confirmDeleteButton').onclick = function () {
-    // Handle delete action (remove the row)
-    row.remove();
-    updateCardView();
+        // Encapsulate the AJAX call in a function
+    function deleteItem() {
+      var farmerid = sessionStorage.getItem('farmerid');
 
-    // Hide the confirmation modal
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:5003/delete-item',
+            data: {
+                farmerid: farmerid, // Assuming farmerid is defined somewhere in your code
+                itemname: itemname,
+            },
+            success: function (response) {
+                // Handle success response
+                console.log(response);
+                row.remove();
+                updateCardView();
+            },
+            error: function (error) {
+                // Handle error response
+                console.error(error);
+            },
+        });
+    }
+
+    // Use try-catch block to handle errors
+    try {
+        // Call the deleteItem function
+        deleteItem();
+    } catch (error) {
+        // Handle any exceptions
+        console.error('An error occurred:', error);
+    }
     $('#deleteConfirmationModal').modal('hide');
   };
-  // Set up event listener for close button in the confirmation modal
+
   document.getElementById('deltemodalclose').onclick = function () {
-    // Hide the confirmation modal
     $('#deleteConfirmationModal').modal('hide');
   };
-
-  // Show the confirmation modal
   $('#deleteConfirmationModal').modal('show');
-
 }
 
 // Add this function to your existing script
@@ -436,16 +550,13 @@ function updateCardView() {
     const itemName = cells[0].textContent;
     const quantityAndUnit = cells[1].textContent.split(' ');
     const itemQuantity = parseInt(quantityAndUnit[0], 10);
-
+        const Quantityunit = quantityAndUnit[1];
+        console.log(Quantityunit);
     // Extracting unit price and total price
     const unitAndQuantity = cells[2].textContent.split('/');
     const unitPrice = parseFloat(unitAndQuantity[0].replace('₹ ', '').trim());
     const totalItemPrice = parseFloat(cells[3].textContent.replace('₹ ', ''));
- // Extracting unit from a specific cell (modify this line according to your HTML structure)
-    const unitSelect = document.getElementById('quantityUnit');
-    const unit = unitSelect.options[unitSelect.selectedIndex].value;
-
-    createCard(itemName, itemQuantity, unitPrice, totalItemPrice,unit);
+    createCard(itemName, itemQuantity, unitPrice, totalItemPrice,Quantityunit);
   }
 
   // Add event listeners for card actions (edit and delete)
@@ -493,4 +604,13 @@ function findImage(itemName, supportedExtensions, callback) {
 
   // Start checking with the first extension
   checkImage(0);
+}
+
+
+function showSpinner() {
+  document.getElementById('spinner').style.display = 'block';
+}
+
+function hideSpinner() {
+  document.getElementById('spinner').style.display = 'none';
 }
