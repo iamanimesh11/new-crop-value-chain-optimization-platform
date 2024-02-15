@@ -1393,3 +1393,277 @@ margin-top:5px;
         .chat-popup-content {
             padding: 20px;
         }
+
+
+
+
+        .weather-widget {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin-top:-10px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .weather-icon {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+                        margin-top:-120px;
+
+        }
+
+        .weather-info {
+        font-size: 18px; /* Adjust the font size as needed */
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: left ;
+    }
+           .location {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .forecast {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .forecast-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .forecast-item {
+            flex: 0 0 auto;
+            width: calc(20% - 10px);
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            text-align: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .arrow-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .left-arrow,
+        .forecast-arrow {
+            cursor: pointer;
+            color: #007BFF;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out; /* Add transition effect for smoother color change */
+            margin-right: 10px; /* Add margin to separate arrows */
+        }
+
+        .left-arrow:hover,
+        .forecast-arrow:hover {
+            color: #0056b3; /* Change the color on hover */
+        }
+        .date {
+    font-size: 14px;
+    color: #888;
+}
+#temperature-container {
+    display: flex;
+    margin-right: auto;
+    justify-content: flex-start;
+
+}
+
+#temperature {
+    font-size: 80px;
+
+}
+
+#weather-icon-container {
+
+    display: flex;
+    margin-left: auto;
+        margin-bottom: 50px;
+
+}
+        #location {
+    text-align: left;
+    display: flex;
+    margin-right: auto;
+    justify-content: flex-start;
+}
+        #wind-info {
+    text-align: left; /* To place wind info below temperature on the left */
+}
+
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .column:hover {
+            transform: scale(1.05);
+        }
+
+        .column-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        #imageContainer {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #uploadedImage {
+            max-width: 100%;
+            max-height: 300px; /* Adjust as needed */
+            border-radius: 10px;
+        }
+
+        #progressBar {
+
+            width: 100%;
+            height: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #progressBar .progress-bar {
+            height: 100%;
+            background-color: #007bff;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        #result img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .historical-reports {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .historical-report-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn-upload {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px; /* Adjust as needed */
+        }
+
+        @media (max-width: 767px) {
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+            }
+
+            .upload-btn-wrapper {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .btn-upload,
+            .remove-btn {
+                width: 100%;
+            }
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }

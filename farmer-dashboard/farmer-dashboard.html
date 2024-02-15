@@ -37,20 +37,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
- <button id="chatbotButton"><span id="chatbotIcon"><i class="fas fa-comment"></i></span></button>
 
-     <div class="chatbot-container">
-        <div class="stylish-header">• AI Chatbot</div>
-        <div class="chat-body" id="chatBody">
-            <!-- Messages will be appended here -->
-        </div>
-        <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Type your message...">
-        <button id="sendButton" class="mic-button"><span id="sendIcon"><i class="fas fa-microphone"></i></span></button>
-
-<!--            <button id="sendButton"><span id="sendIcon">➤</span></button>-->
-        </div>
-    </div>
 
 <div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
     <!-- Your jumbotron content goes here -->
@@ -147,15 +134,6 @@ function closeForm() {
         }
     }
 </script>
-<div class="container">
-
-<button type="button" id="CartButton">
-  <i class="fas fa-cart-plus CartButton"></i>
-</button>
-<button type="button" id="favouritesButton">
-  <i class="fas fa-star favouritesButton"></i>
-</button>
-</div>
 <script>
  document.getElementById('CartButton').addEventListener('click', function() {
     $('#cartModal').modal('show');
@@ -165,17 +143,7 @@ function closeForm() {
 
     <div class="row g-0">
         <div class="input-group mb-3">
-    <select class="custom-select" id="itemDropdown">
-        <option value="" disabled selected>--Select Item--</option>
-        <!-- Add your JSON data dynamically here -->
-    </select>
-    <div class="input-group-prepend">
-        <span class="input-group-text">Or</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Type your own item" aria-label="Type your own item" aria-describedby="searchButton">
-    <div class="input-group-append">
-        <button class="btn btn-primary" type="button" id="searchButton">Search</button>
-    </div>
+
 </div>
         <script>
     document.getElementById('searchButton').addEventListener('click', function () {
@@ -211,57 +179,234 @@ function closeForm() {
                     <h2 class="card-title profile-details" id="selectedcropname"><i class="profile-icons"></i> Singh</h2>
                     <!-- Filter By Input Group -->
                     <!-- Price Range Slider -->
-                    <div id="price-range">
-                        <label for="amount-container">Price Range:</label>
-                        <div id="amount-container">
-                            <div id="amount-box">
-                                <span id="min-amount">Min: Rs 0</span> to
-                                <span id="max-amount">Max: Rs 1000</span>
-                            </div>
-                        </div>
-                        <div id="slider"></div>
-                    </div>
-                    <div id="qprice-range">
-                        <label for="qamount-container">Quantity Range:</label>
-                        <select id="quantity-unit">
-                            <option value="Gram">Gram (g)</option>
-                            <option value="kilogram">kilogram (kg)</option>
-                            <option value="Quintal">Quintal (q)</option>
-                        </select>
-                        <div id="qamount-container">
-                            <div id="qamount-box">
-                                <span id="qmin-amount">Min: Rs 0</span> to
-                                <span id="qmax-amount">Max: Rs 1000</span>
-                            </div>
-                        </div>
-                        <div id="qslider"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="col-md-6 position-relative">
             <div class="card edit-form" style="overflow-x: auto;">
-                 <h2 class="showing-results" id="connecttosellersTitle">
-                    <i class="profile-icons"></i>Connect To Sellers
-                </h2>
+                                <!-- Pagination controls -->
+             <div class="background-overlay"></div>
 
-                <h6 class="showing-results" id="searchResultsTitle">
-                    <i class="profile-icons"></i>Search Results
-                </h6>
-               <!-- Pagination controls -->
-                <div class="pagination-container">
-                  <button onclick="prevPage()">Previous</button>
-                  <span id="currentPage">Page 1</span>
-                  <span>/</span>
-                  <span id="totalPages">1</span>
-                  <button onclick="nextPage()">Next</button>
-                </div>
-                <div class="farmer-cards-container">
-                </div>
+    <div class="weather-widget" id="weather-widget">
+        <div class="temperature-container" id="temperature-container">
+            <div class="weather-info" id="temperature"></div>
+        </div>
+        <div class="location" id="location"></div>
+        <div class="weather-icon-container" id="weather-icon-container">
+            <div class="weather-icon" id="weather-icon"></div>
+        </div>
+        <div class="weather-info" id="humidity"></div>
+        <div class="additional-info" id="wind-info"></div>
+        <div class="forecast" id="forecast">
+            <div class="arrow-container">
+                <div class="left-arrow" id="moveLeftBtn"><</div>
+            </div>
+            <div class="forecast-container" id="forecast-container"></div>
+            <div class="arrow-container">
+                <div class="forecast-arrow" id="moveRightBtn">></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const apiKey = 'd9566a1fcf6a4a4499a151555241302'; // Replace with your actual weatherapi.com API key
+        const location = 'Noida, India'; // Replace with the farmer's location
+        const moveLeftBtn = document.getElementById('moveLeftBtn');
+        const moveRightBtn = document.getElementById('moveRightBtn');
+        const forecastContainer = document.getElementById('forecast-container');
+
+        let currentIndex = 0;
+        const itemsPerSlide = 5;
+        let data;
+
+        // Fetch weather data from weatherapi.com API
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=10`) // Fetching 10 days for demonstration
+            .then(response => response.json())
+            .then(apiData => {
+                data = apiData;
+                updateWeatherInfo();
+            })
+            .catch(error => console.error('Error fetching weather data:', error));
+
+        moveLeftBtn.addEventListener('click', () => {
+            currentIndex = Math.max(0, currentIndex - itemsPerSlide);
+            updateForecast();
+        });
+
+        moveRightBtn.addEventListener('click', () => {
+            currentIndex = Math.min(data.forecast.forecastday.length - itemsPerSlide, currentIndex + itemsPerSlide);
+            updateForecast();
+        });
+
+        function updateWeatherInfo() {
+            const weatherIcon = document.getElementById('weather-icon');
+            const temperature = document.getElementById('temperature');
+            const humidity = document.getElementById('humidity');
+            const location = document.getElementById('location');
+            const windInfo = document.getElementById('wind-info');
+                windInfo.textContent = `Wind: ${data.current.wind_kph} km/h,`;
+
+            // Update weather icon
+            weatherIcon.style.backgroundImage = `url(${data.current.condition.icon})`;
+
+            // Update temperature and humidity
+            temperature.textContent = `${data.current.temp_c}°C`;
+            humidity.textContent = `Humidity: ${data.current.humidity}%`;
+
+            // Update location
+            location.textContent = `Location: ${data.location.name}, ${data.location.country}`;
+
+            // Update forecast
+            updateForecast();
+        }
+
+        function updateForecast() {
+            forecastContainer.innerHTML = '';
+
+            for (let i = currentIndex; i < currentIndex + itemsPerSlide; i++) {
+                const index = i % data.forecast.forecastday.length;
+                const date = new Date(data.forecast.forecastday[index].date);
+                const dateString = `${date.getMonth() + 1}/${date.getDate()}`;
+                const temperature = data.forecast.forecastday[index].day.maxtemp_c;
+
+                // Determine weather condition based on temperature
+                let weatherCondition;
+                if (temperature >= 20) {
+                    weatherCondition = '☀️';
+                } else if (temperature >= 20) {
+                    weatherCondition = '☁️';
+                } else if (temperature >= 10) {
+                    weatherCondition = '🌧️';
+                } else {
+                    weatherCondition = '⛈️ Thunderstorm';
+                }
+
+                forecastContainer.innerHTML += `<div class="forecast-item"><div class="date">${dateString}</div>${weatherCondition} <br> ${temperature}°C  </div>`;
+            }
+        }
+    });
+</script>
+
             </div>
         </div>
     </div>
 </div>
+
+<!-- Bootstrap Container -->
+<div class="container">
+
+    <!-- Responsive Dashboard Layout -->
+    <div class="dashboard-container">
+
+        <!-- Left Column - Image Upload and Detection -->
+        <div class="column">
+
+            <div class="column-title">Image Upload and Detection</div>
+
+            <!-- Image Upload Area -->
+            <div id="imageContainer">
+                <div class="upload-btn-wrapper" id="uploadWrapper">
+                    <button class="btn-upload" id="uploadBtn">Upload File</button>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+                <img id="uploadedImage" alt="Uploaded Image">
+                <button class="remove-btn" id="removeBtn" style="display: none;" onclick="removeImage()">Remove Image</button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="progressBar">
+                <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <!-- Detection Result Area -->
+            <div id="result"></div>
+
+            <!-- Detect Button -->
+            <button class="btn" onclick="detectDisease()">Detect Disease</button>
+
+        </div>
+
+        <!-- Right Column - Historical Reports -->
+        <div class="column">
+
+            <div class="column-title">Historical Reports</div>
+
+            <div class="historical-reports" id="historicalReports"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    function detectDisease() {
+        // Your detection logic goes here
+        // You can update the result section with the actual detection results
+    }
+
+    function removeImage() {
+        // Reset the image container and show the "Upload File" button
+        document.getElementById('uploadedImage').src = '';
+        document.getElementById('uploadWrapper').style.display = 'block';
+        document.getElementById('removeBtn').style.display = 'none';
+         resetProgressBar()
+    }
+
+    // Reset progress bar function
+    function resetProgressBar() {
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.style.width = '0%';
+    }
+
+    // Handle image upload and display
+     document.getElementById('imageInput').addEventListener('change', function (event) {
+        const uploadedImage = document.getElementById('uploadedImage');
+        const progressBar = document.querySelector('.progress-bar');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const removeBtn = document.getElementById('removeBtn');
+
+        const file = event.target.files[0];
+
+        if (file) {
+            resetProgressBar(); // Reset progress bar on new file selection
+
+            const reader = new FileReader();
+
+            reader.onloadstart = function () {
+                progressBar.style.width = '0%';
+            };
+
+            reader.onprogress = function (event) {
+                if (event.lengthComputable) {
+                    const progress = (event.loaded / event.total) * 100;
+                    progressBar.style.width = progress + '%';
+                }
+            };
+
+            reader.onload = function (e) {
+                progressBar.style.width = '100%';
+                uploadedImage.src = e.target.result;
+
+                // Hide "Upload File" button and show "Remove Image" button and the progress bar
+                uploadBtn.style.display = 'none';
+                removeBtn.style.display = 'block';
+                progressBar.style.display = 'block';
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
 <!-- Chat Modal -->
 
 <!-- Messaging Modal -->
