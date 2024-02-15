@@ -1531,7 +1531,7 @@ margin-top:5px;
         }
 
         .column:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .column-title {
