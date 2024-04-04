@@ -1169,17 +1169,17 @@ margin-top:5px;
     font-size: 28px; /* Adjust the font size to your preference */
 }
 #CartButton {
-  border: none !important;
-  padding: 0; /* Remove padding to eliminate any remaining spacing */
-  color: black; /* Set the initial color to black */
-  font-size: 28px; /* Adjust the font size to your preference */
-  background: none; /* Remove any background */
-  outline: none; /* Remove the outline */
-  transition: color 0.3s ease; /* Add a smooth transition for color changes */
-  margin-bottom:-20px;
+border: none !important;
+    padding: 10px; /* Add padding to create some space around the icon */
+    color: black;
+    font-size: 28px;
+    background: #e0e0e0; /* Set the background color for the button */
+    outline: none;
+    transition: background 0.3s ease; /* Add a smooth transition for background changes */
+    margin-bottom: -20px;
+    /* Hover styles */
+    cursor: pointer;
 
-  /* Hover styles */
-  cursor: pointer;
 }
 
 #CartButton:hover {
@@ -1536,18 +1536,4 @@ margin-top:5px;
             .remove-btn {
                 width: 100%;
             }
-        }
-
-        button {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
         }

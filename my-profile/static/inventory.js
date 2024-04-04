@@ -111,7 +111,7 @@ if (existingRow) {
     const itemname= document.getElementById('updateConfirmationItemName').textContent;
    $.ajax({
     type: 'POST',
-    url: 'http://127.0.0.1:5003/edit-item',
+    url: 'http://127.0.0.1:5004/edit-item',
     data: {
       farmerid: farmerid,
       itemname:itemname,
@@ -140,7 +140,7 @@ if (existingRow) {
 
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:5003/add-item',  // Replace with your server endpoint
+            url: 'http://127.0.0.1:5004/add-item',  // Replace with your server endpoint
             data: {
                 farmerid:farmerid,
                 itemName: itemName,
@@ -268,7 +268,7 @@ function fetchDataAndDisplayTable() {
 
   $.ajax({
     type: 'GET',
-    url: 'http://127.0.0.1:5003/get-items',
+    url: 'http://127.0.0.1:5004/get-items',
    data: {farmerid: farmerid},  // Send userId as a data parameter
 
     success: function (response) {
@@ -385,7 +385,7 @@ function submitEditedItem(row) {
 
    $.ajax({
     type: 'POST',
-    url: 'http://127.0.0.1:5003/edit-item',
+    url: 'http://127.0.0.1:5004/edit-item',
     data: {
       farmerid: farmerid,
       itemname:itemname,
@@ -422,7 +422,7 @@ const itemname=row.cells[0].textContent;
 
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:5003/delete-item',
+            url: 'http://127.0.0.1:5004/delete-item',
             data: {
                 farmerid: farmerid, // Assuming farmerid is defined somewhere in your code
                 itemname: itemname,

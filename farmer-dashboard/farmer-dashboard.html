@@ -293,7 +293,121 @@ function closeForm() {
         </div>
     </div>
 </div>
+<div class="container">
 
+<button type="button" id="CartButton">
+  <i class="fas fa-cart-plus CartButton"></i>
+</button>
+<button type="button" id="favouritesButton">
+  <i class="fas fa-star favouritesButton"></i>
+</button>
+</div>
+<script>
+ document.getElementById('CartButton').addEventListener('click', function() {
+    $('#cartModal').modal('show');
+  });
+</script>
+<div class="container profile-container">
+
+    <div class="row g-0">
+        <div class="input-group mb-3">
+    <select class="custom-select" id="itemDropdown">
+        <option value="" disabled selected>--Select Item--</option>
+        <!-- Add your JSON data dynamically here -->
+    </select>
+    <div class="input-group-prepend">
+        <span class="input-group-text">Or</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Type your own item" aria-label="Type your own item" aria-describedby="searchButton">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+    </div>
+</div>
+        <script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+        var selectedItem = document.getElementById('itemDropdown').value;
+        var typedItem = document.querySelector('.form-control').value;
+
+        if (selectedItem && typedItem) {
+            // Handle both cases: selectedItem and typedItem
+             alert('Please select only one option. Either choose from the dropdown or type your own item.');
+            return;
+        } else if (selectedItem) {
+            var selectedCropNameElement = document.getElementById('selectedcropname');
+                // Change the text of the h2 element with the entered crop name
+                selectedCropNameElement.innerText = selectedItem;
+        } else if (typedItem) {
+             var typedCropNameElement = document.getElementById('selectedcropname');
+                // Change the text of the h2 element with the entered crop name
+                typedCropNameElement.innerText = typedItem;
+        } else {
+            // Handle no selection or input
+            alert('Please select an item or type your own item.');
+        }
+
+
+    });
+</script>
+        <div class="col-md-6">
+            <div class="card profile-card">
+                <div class="cover-image-container">
+                    <img id="coverImage" src="static/images/farm1.png" alt="Cover Image" class="card-img-top cover-image">
+                </div>
+                <div class="card-body profile-body">
+                    <h2 class="card-title profile-details" id="selectedcropname"><i class="profile-icons"></i> Singh</h2>
+                    <!-- Filter By Input Group -->
+                    <!-- Price Range Slider -->
+                    <div id="price-range">
+                        <label for="amount-container">Price Range:</label>
+                        <div id="amount-container">
+                            <div id="amount-box">
+                                <span id="min-amount">Min: Rs 0</span> to
+                                <span id="max-amount">Max: Rs 1000</span>
+                            </div>
+                        </div>
+                        <div id="slider"></div>
+                    </div>
+                    <div id="qprice-range">
+                        <label for="qamount-container">Quantity Range:</label>
+                        <select id="quantity-unit">
+                            <option value="Gram">Gram (g)</option>
+                            <option value="kilogram">kilogram (kg)</option>
+                            <option value="Quintal">Quintal (q)</option>
+                        </select>
+                        <div id="qamount-container">
+                            <div id="qamount-box">
+                                <span id="qmin-amount">Min: Rs 0</span> to
+                                <span id="qmax-amount">Max: Rs 1000</span>
+                            </div>
+                        </div>
+                        <div id="qslider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <div class="card edit-form" style="overflow-x: auto;">
+                 <h2 class="showing-results" id="connecttosellersTitle">
+                    <i class="profile-icons"></i>Connect To Buyers
+                </h2>
+
+                <h6 class="showing-results" id="searchResultsTitle">
+                    <i class="profile-icons"></i>Search Results
+                </h6>
+               <!-- Pagination controls -->
+                <div class="pagination-container">
+                  <button onclick="prevPage()">Previous</button>
+                  <span id="currentPage">Page 1</span>
+                  <span>/</span>
+                  <span id="totalPages">1</span>
+                  <button onclick="nextPage()">Next</button>
+                </div>
+                <div class="farmer-cards-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Bootstrap Container -->
 <div class="container">
 

@@ -34,7 +34,7 @@ function sendforgotEmailVerification() {
         // Use AJAX to send the email verification request to Flask endpoint
         $.ajax({
             type: 'POST',
-            url: 'http://192.168.1.6:5001/send-forgotpass-email-verification',
+            url: 'http://127.0.0.1:5002/send-forgotpass-email-verification',
             data: { email: femail},
             success: function (response) {
                 console.log(response);
@@ -79,7 +79,7 @@ function sendforgotEmailVerification() {
         // Use AJAX to send the OTP verification request to Flask endpoint
         $.ajax({
             type: 'POST',
-            url: '/fverify-email-otp',
+            url: 'http://127.0.0.1:5002/fverify-email-otp',
             data: { femail: femail, fcode: fotp },
             success: function (response) {
                 console.log(response);
@@ -133,7 +133,7 @@ function sendforgotEmailVerification() {
 
      $.ajax({
             type: 'POST',
-            url: '/freset-password',
+            url: 'http://127.0.0.1:5002/freset-password',
             data: { femail: userEmail, fpassword: confirmPassword },
             success: function (response) {
                 console.log(response);

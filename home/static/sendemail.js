@@ -25,7 +25,7 @@ function sendEmailVerification() {
         // Use AJAX to send the email verification request to Flask endpoint
         $.ajax({
             type: 'POST',
-            url: '/send-email-verification',
+            url: 'http://127.0.0.1:5000/send-email-verification', // Change this to match your endpoint
             data: { email: email ,name: name,password: password},
             success: function (response) {
                 console.log(response);
@@ -64,7 +64,7 @@ function sendEmailVerification() {
         // Use AJAX to send the OTP verification request to Flask endpoint
         $.ajax({
             type: 'POST',
-            url: '/verify-email-otp',
+            url: 'http://127.0.0.1:5000/verify-email-otp',
             data: { email: email, code: enteredOTP },
             success: function (response) {
                 console.log(response);
@@ -108,7 +108,7 @@ function sendEmailVerification() {
 
     $.ajax({
         type: 'POST',
-        url: '/register',
+        url: 'http://127.0.0.1:5000/register',
         data: { email: email, name: name, password: password, chooseProfile: chooseProfile },
         success: function (response) {
             console.log(response);

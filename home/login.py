@@ -17,7 +17,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '',
-    'database': 'user_registration_db'
+    'database': 'user_registration_dbb'
 }
 @app.route('/')
 def index():
@@ -85,4 +85,4 @@ def login():
         return jsonify({'status': 'error', 'message': f'Database error: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(debug=True, port=5001)

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+           <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css">
+<script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/my-profile.css">
+    <link rel="stylesheet" type="text/css" href="static/payment.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+
+
+<script src="static/forgotpassword.js"></script>
+        <script src="static/register.js"></script>
+        <script src="static/sendemail.js"></script>
+            <script src="static/my-proile.js"></script>
+                <script src="static/payment.js"></script>
+                    <script src="static/states-city-data.js"></script>
+  <script src="static/buyer-selected.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid bg-success text-white text-center position-relative" style="height: 25vh;">
+    <!-- Your jumbotron content goes here -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <div class="circular-logo">
+                     <img src="static/images/logo.png" alt="Your Logo" width="120" height="120">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation" onclick="toggleLoginButton()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+    </div>
+
+           <ul class="navbar-nav ml-auto" id="loginButtonContainer">
+            <li class="nav-item text-center">
+                  <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms4()" id ="loginButton" data-target="#signInModal"> 👤Log In</a>
+           </li>
+            <li class="nav-item text-center" id="userProfileDropdown" style="display: none;">
+                    <div class="dropdown">
+                        <button class="btn btn-light mx-2 dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            👤 Hi, <span id="userName"></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+
+                   </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+   <div class="container">
+        <div class="row mt-3 no-gutters">
+            <div class="col-md-8">
+                <div class="saved-addresses">
+                    <div class="_2KgtFC">
+                        <div class="_2jAffS">
+                            <div class="_39UmMw">
+                                <h6>From Saved Addresses</h6>
+                                <button id="deliveryCodeButton" class="_2MMH-I enter-pincode-btn" data-toggle="modal" data-target="#selectAddressModal">Enter Delivery Pincode</button>
+                                <div class="selected-address" style="display: none;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card ">
+                    <div class="card-header">
+                        <h5 class="card-title">Shopping Cart</h5>
+                    </div>
+                     <div class="card-body cart">
+                        <!-- Example item -->
+                        <div class="item-container">
+                            <img src="item-image.jpg" alt="Item Image" class="item-image">
+                            <div class="item-details">
+                                <h5 class="item-title">Product Name</h5>
+                                <p class="item-seller">Seller Name</p>
+                                <p class="item-price">$20.00</p>
+                                <button class="buy-now-btn">Buy Now</button>
+
+                            </div>
+                            <div class="item-options">
+                                <span class="save-for-later">Save for Later</span>
+                                <span class="remove-item">Remove</span>
+
+                            </div>
+
+                        </div>
+                         <div class="item-container">
+                            <img src="item-image.jpg" alt="Item Image" class="item-image">
+                            <div class="item-details">
+                                <h5 class="item-title">Product Name</h5>
+                                <p class="item-seller">Seller Name</p>
+                                <p class="item-price">$20.00</p>
+                                                                <button class="buy-now-btn">Buy Now</button>
+
+                            </div>
+                            <div class="item-options">
+                                <span class="save-for-later">Save for Later</span>
+                                <span class="remove-item">Remove</span>
+                            </div>
+
+                        </div>
+
+                         <div class="empty-cart">
+                                         <img src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg" alt="Empty Cart Image" class="empty-cart-image">
+
+                            <p>Your cart is empty</p>
+                        </div>
+                        <!-- Repeat this structure for each item in the cart -->
+                    </div>
+                </div>
+
+                 <div class="card mt-8">
+                    <div class="card-header">
+                        <h5 class="card-title">Saved for Later</h5>
+                    </div>
+                    <div class="card-body saved-for-later-section" >
+                        <!-- Example item -->
+                        <div class="item-container">
+                            <img src="saved-item-image.jpg" alt="Saved Item Image" class="item-image">
+                            <div class="item-details">
+                                <h5 class="item-title">Saved Product Name</h5>
+                                <p class="item-seller">Saved Seller Name</p>
+                                <p class="item-price">$25.00</p>
+                            </div>
+                            <div class="item-options">
+                                 <span class="move-to-cart">Move to cart</span>
+                                <span class="remove-item">Remove</span>
+                            </div>
+                        </div>
+                        <!-- Repeat this structure for each item saved for later -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Total</h5>
+                    </div>
+                     <div class="card-body">
+            <!-- You can add additional pricing details here, like taxes, shipping, etc. -->
+            <p>Shipping: Free</p>
+            <hr>
+            <h5>Total: <span class="total-price">$0.00</span></h5>
+            <!-- You can include buttons for checkout or continue shopping here -->
+            <button class="btn btn-secondary">Continue Shopping</button>
+        </div>
+                </div>
+            </div>
+             <!-- Saved for Later Card -->
+
+        </div>
+    </div>
+
+<!-- Modal for Selecting Delivery Address -->
+<div class="modal fade" id="selectAddressModal" tabindex="-1" role="dialog" aria-labelledby="selectAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="selectAddressModalLabel">Select Delivery Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Address list with radio buttons -->
+                <form id="addressForm">
+                    <div class="form-group">
+                        <input type="radio" id="address1" name="address" value=": GH 05 B, Sector 16B Rd, Greater Noida, Uttar Pradesh 201306">
+                        <label for="address1">: GH 05 B, Sector 16B Rd, Greater Noida, Uttar Pradesh 201306</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" id="address2" name="address" value="Address 2">
+                        <label for="address2">Address 2</label>
+                    </div>
+
+                </form>
+                                <button type="button" class="btn btn-primary" id="useCurrentLocationBtn">Use Current Location</button>
+                <div id="pincodeContainer"></div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="selectAddressBtn">Select Address</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Function to handle fetching current location
+function getCurrentLocation() {
+    // Check if Geolocation is supported
+    if (navigator.geolocation) {
+        // Get the current position
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+        // Geolocation is not supported by the browser
+        alert("Geolocation is not supported by your browser.");
+    }
+}
+
+// Success callback function for getCurrentPosition
+function successCallback(position) {
+    // Get latitude and longitude
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // Do something with the latitude and longitude, such as displaying it in the form
+    var currentLocation = "Latitude: " + latitude + ", Longitude: " + longitude;
+    $("#pincodeContainer").text(currentLocation);
+}
+
+// Error callback function for getCurrentPosition
+function errorCallback(error) {
+    // Handle errors
+    alert("Error occurred while fetching your location: " + error.message);
+}
+
+// Event listener for "Use Current Location" button
+$("#useCurrentLocationBtn").click(function() {
+    getCurrentLocation();
+});
+
+   // Assuming you have the selected address stored in a variable called "selectedAddress"
+$("#selectAddressBtn").click(function() {
+    var selectedAddress = $("input[name='address']:checked").val();
+    if (selectedAddress) {
+        // Display the selected address below the "From Saved Addresses" text
+        $(".selected-address").text(selectedAddress).show();
+        // Change the button text to "Change Address"
+        $(".enter-pincode-btn").text("Change Address");
+        // Close the modal
+        $("#selectAddressModal").modal("hide");
+    } else {
+        alert("Please select an address.");
+    }
+});
+
+
+</script>
+<script>
+
+    $(document).ready(function() {
+    // Function to update the total price
+    function updateTotalPrice() {
+        var totalPrice = 0;
+       var cartItems = $(".cart .item-container");
+        if (cartItems.length === 0) {
+            // Show default message if cart is empty
+$(".empty-cart").css("display", "block");
+        } else {
+            // Hide default message if cart is not empty
+$(".empty-cart").css("display", "none");
+
+}
+        // Iterate over each item in the shopping cart
+        $(".cart .item-container").each(function() {
+            var itemPriceText = $(this).find(".item-price").text();
+            // Log the item price text for debugging
+            console.log("Item Price Text:", itemPriceText);
+            var itemPrice = parseFloat(itemPriceText.replace("$", ""));
+            // Log the parsed item price for debugging
+            console.log("Parsed Item Price:", itemPrice);
+            totalPrice += itemPrice;
+            // Log the running total for debugging
+            console.log("Running Total:", totalPrice);
+        });
+        // Update the total price displayed in the "Total" section
+        $(".total-price").text("$" + totalPrice.toFixed(2));
+        // Log the final total price for debugging
+        console.log("Final Total Price:", totalPrice);
+        // Display price of each item
+
+    }
+
+    // Call the updateTotalPrice function initially and after any changes to the shopping cart
+    updateTotalPrice();
+
+
+
+        // Move to Cart
+        $(document).on("click", ".move-to-cart", function() {
+            var item = $(this).closest(".item-container");
+            var itemTitle = item.find(".item-title").text();
+            var itemSeller = item.find(".item-seller").text();
+            var itemPrice = item.find(".item-price").text();
+            var newItem = `
+                <div class="item-container">
+                    <img src="saved-item-image.jpg" alt="Saved Item Image" class="item-image">
+                    <div class="item-details">
+                        <h5 class="item-title">${itemTitle}</h5>
+                        <p class="item-seller">${itemSeller}</p>
+                        <p class="item-price">${itemPrice}</p>
+                                                        <button class="buy-now-btn">Buy Now</button>
+
+                    </div>
+                    <div class="item-options">
+                        <span class="save-for-later">Save for Later</span>
+                        <span class="remove-item">Remove</span>
+
+                    </div>
+                </div>
+            `;
+       $(".cart").append(newItem); // Target the specific section
+            item.remove(); // Remove item from Saved for Later
+                updateTotalPrice();
+
+
+
+        });
+
+        // Save for Later
+        $(document).on("click", ".save-for-later", function() {
+            var item = $(this).closest(".item-container");
+            var itemTitle = item.find(".item-title").text();
+            var itemSeller = item.find(".item-seller").text();
+            var itemPrice = item.find(".item-price").text();
+            var newItem = `
+                <div class="item-container">
+                    <img src="item-image.jpg" alt="Item Image" class="item-image">
+                    <div class="item-details">
+                        <h5 class="item-title">${itemTitle}</h5>
+                        <p class="item-seller">${itemSeller}</p>
+                        <p class="item-price">${itemPrice}</p>
+                    </div>
+                    <div class="item-options">
+                        <span class="move-to-cart">Move to Cart</span>
+                        <span class="remove-item">Remove</span>
+                    </div>
+                </div>
+            `;
+            $(".saved-for-later-section").append(newItem); // Append to the last card's body
+            item.remove(); // Remove item from Shopping Cart
+                updateTotalPrice();
+
+        });
+
+        // Remove Item
+        $(document).on("click", ".remove-item", function() {
+                var confirmed = confirm("Are you sure you want to remove this item from your cart?");
+        if (confirmed) {
+            // Remove the item
+            $(this).closest(".item-container").remove();
+            // Update the total price
+            updateTotalPrice();
+        }
+
+
+        });
+    });
+
+</script>
+<script>
+    // Add event listener to the "Buy Now" button
+    document.querySelectorAll('.buy-now-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Get the URL of the page to redirect to
+            var redirectUrl = 'checkout.html'; // Replace 'checkout.html' with the URL of your checkout page
+
+            // Redirect the user to the checkout page
+            window.location.href = redirectUrl;
+        });
+    });
+</script>
+</body>
+</html>

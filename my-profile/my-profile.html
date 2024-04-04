@@ -794,6 +794,8 @@ function closeForm() {
 </div>
 
 <script>
+
+
     function submitLoginForm() {
     // Clear any previous error messages
     $('#loginError').text('');
@@ -1056,7 +1058,7 @@ $(document).ready(function () {
         var userId = sessionStorage.getItem('userid');
         // Fetch farmer data after the page loads
         $.ajax({
-            url: 'http://127.0.0.1:5003/get-farmer-data',
+            url: 'http://127.0.0.1:5004/get-farmer-data',
             type: 'GET',
             data: {userid: userId},  // Send userId as a data parameter
 
@@ -1089,7 +1091,7 @@ $(document).ready(function () {
 
         // Send data to Flask route for saving changes
         $.ajax({
-            url: 'http://127.0.0.1:5003/save-farmer-data',
+            url: 'http://127.0.0.1:5004/save-farmer-data',
             type: 'POST',
             data: {
                     userid: userId,

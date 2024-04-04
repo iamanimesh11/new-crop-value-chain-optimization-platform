@@ -88,7 +88,6 @@
                     <a class="btn btn-light mx-2" href="#" data-toggle="modal" onclick="toggleForms2()" id="toggleFormsBtn2" data-target="#signInModal">Get Started</a>
             </li>
         </ul>
-
     </div>
 
            <ul class="navbar-nav ml-auto" id="loginButtonContainer">
@@ -414,9 +413,7 @@ function closeForm() {
 <script>
     // Add an event listener to the "here" link
     $('#addtocartItemName').on('click', function () {
-        // Show the modal when the link is clicked
-        $('#cartModal').modal('show');
-        $('#addtocartModal').modal('hide');
+            window.location.href = 'trial folder/viewcart.html';
 
     });
     $('#cartmodalclose').on('click', function () {

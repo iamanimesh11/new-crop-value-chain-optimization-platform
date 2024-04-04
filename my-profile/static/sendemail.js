@@ -12,6 +12,7 @@ function sendEmailVerification() {
         // Display error message in red
         document.getElementById("smessage").innerHTML = "<span style='color: red;'>Please ENTER Name ,Email.</span>";
         return;
+
     }
 
      // Display spinner and hide button content

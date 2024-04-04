@@ -17,7 +17,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '',
-    'database': 'user_registration_db'
+    'database': 'user_registration_dbb'
 }
 # Assuming you have a function to get data from the database
 def get_farmer_data(user_id):
@@ -25,7 +25,7 @@ def get_farmer_data(user_id):
         host='localhost',
         user='root',
         password='',
-        database='user_registration_db'
+        database='user_registration_dbb'
     )
     cursor = connection.cursor()
     query = f"SELECT farmer_name, email, phone, age, state, city, gender, address FROM farmers WHERE user_id = {user_id}"
@@ -58,7 +58,7 @@ def update_farmer_data(user_id, new_name, new_email, new_phone, new_age, new_sta
             host='localhost',
             user='root',
             password='',
-            database='user_registration_db'
+            database='user_registration_dbb'
         )
         cursor = connection.cursor()
         update_query = "UPDATE farmers SET farmer_name = %s, email = %s, phone = %s, age = %s, state = %s, city = %s, gender = %s, address = %s WHERE user_id = %s"
@@ -194,6 +194,5 @@ def fetch_items():
         return jsonify({'status': 'error', 'message': f'Failed to fetch items: {str(e)}'}), 500
 
 
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5003, debug=True)
+    app.run(port=5004, debug=True)

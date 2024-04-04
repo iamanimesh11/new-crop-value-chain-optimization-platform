@@ -4,8 +4,10 @@ import random
 import string
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_cors import CORS
 
 app = Flask(__name__, template_folder='.', static_folder='static')
+CORS(app)
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -20,7 +22,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '',
-    'database': 'user_registration_db'
+    'database': 'user_registration_dbb'
 }
 # Store generated verification codes (in-memory for simplicity, consider using a database)
 fverification_codes = {}
@@ -118,4 +120,4 @@ def reset_password():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5001,debug=True)
+    app.run(host='0.0.0.0',port=5002,debug=True)
