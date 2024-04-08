@@ -5,10 +5,8 @@ import string
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask_cors import CORS
 
 app = Flask(__name__, template_folder='.', static_folder='static')
-CORS(app)
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -28,7 +26,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': '',
-    'database': 'user_registration_dbb'
+    'database': 'user_registration_db'
 }
 conn = mysql.connector.connect(**db_config)
 cursor = conn.cursor()
@@ -39,6 +37,16 @@ cursor.execute('''
         email VARCHAR(255),
         password VARCHAR(255),
         profile VARCHAR(50)
+    )
+''')
+
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS buyers (
+        buyer_id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT,
+        buyer_name VARCHAR(255),
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
     )
 ''')
 
@@ -57,33 +65,9 @@ cursor.execute('''
         FOREIGN KEY (user_id) REFERENCES users(user_id)
     )
 ''')
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS buyers (
-        buyer_id INT AUTO_INCREMENT PRIMARY KEY,
-        user_id INT,
-        buyer_name VARCHAR(255),
-        email VARCHAR(255),
-        phone VARCHAR(20),
-        age INT,
-        state VARCHAR(100),
-        city VARCHAR(100),
-        gender VARCHAR(10),
-        address VARCHAR(255),
-        FOREIGN KEY (user_id) REFERENCES users(user_id)
-    )
-''')
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS farmer_inventory (
-    farmer_id INT,
-    item_name VARCHAR(255),
-    quantity DECIMAL(10,2),
-    total_price DECIMAL(12,2),
-    quantityunit VARCHAR(50),
-    image BLOB
-    )
-''')
 conn.commit()
 conn.close()
+
 
 @app.route('/')
 def index():
@@ -109,8 +93,12 @@ def send_email_verification():
         email=email,
         verification_code=verification_code
     )
+
+
     # Send the email
     mail.send(msg)
+
+
     return 'Email sent successfully'
 
 
@@ -163,11 +151,11 @@ def register():
 
         # Store profile-specific details in the corresponding table (farmers/buyers)
         if chooseProfile == 'farmer':
-            cursor.execute('INSERT INTO farmers (user_id, farmer_name,email) VALUES (%s, %s, %s)',
-                           (user_id, name,email))
+            cursor.execute('INSERT INTO farmers (user_id, farmer_name) VALUES (%s, %s)',
+                           (user_id, name))
         elif chooseProfile == 'buyer':
-            cursor.execute('INSERT INTO buyers (user_id, buyer_name,email) VALUES (%s, %s, %s)',
-                           (user_id, name,email))
+            cursor.execute('INSERT INTO buyers (user_id, buyer_name) VALUES (%s, %s)',
+                           (user_id, name))
 
         else :
             print("error in famera")
@@ -183,5 +171,6 @@ def register():
 def generate_verification_code():
     return ''.join(random.choices( string.digits, k=6))
 
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True)

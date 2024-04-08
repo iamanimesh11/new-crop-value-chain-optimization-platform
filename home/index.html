@@ -476,11 +476,20 @@
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('userName', response.full_name);
         sessionStorage.setItem('userid', response.userid);
-        sessionStorage.setItem('farmerid', response.farmer_id);
 
-
-
-        window.location.href = '../my-profile/my-profile.html'; // Update the URL as needed
+            // Check if the user is a farmer
+        if (response.hasOwnProperty('farmer_id')) {
+            sessionStorage.setItem('farmerid', response.farmer_id);
+            // Redirect to my-profile.html for farmer
+            window.location.href = '../my-profile/my-profile.html'; // Update the URL as needed
+        } else if (response.hasOwnProperty('buyer_id')) {
+            sessionStorage.setItem('buyerid', response.buyer_id);
+            // Redirect to buyer-profile.html for buyer
+            window.location.href = '../buyer-my-profile/my-profile.html'; // Update the URL as needed
+        } else {
+            // Log to console if no farmer_id or buyer_id
+            console.log("Unknown user type");
+        }
 
             // Login successful, hide the login form and show the success message
             $('#loginForm').hide();

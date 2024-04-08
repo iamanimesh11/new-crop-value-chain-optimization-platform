@@ -1,0 +1,112 @@
+
+  .pcard {
+    margin-top: 20px;
+    margin-left:30px;
+    text-align: centre;
+  }
+
+  .pcard-header {
+    padding: 12px;
+     margin-bottom: 20px;
+  }
+
+  .pcard-header-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .pcard-body {
+    padding: 15px;
+  }
+
+  .pcard-title {
+    margin-bottom: 10px;
+  }
+
+  .pcard-text {
+    margin-bottom: 5px;
+  }
+
+  .pcard {
+      width: calc(54.33% - 40px); /* Adjust the width as needed */
+       margin: 40px auto; /* Added mx-auto to center horizontally */
+       box-sizing: border-box;
+       border: 1px solid #ccc;
+       padding: 10px;
+         background-color: #fff; /* Card background color */
+  border: 1px solid #dee2e6;
+    border-radius: 8px;
+  transition: box-shadow 0.3s;
+    }
+
+  .pcard-header-success {
+  background-color: #28a745; /* Change to your desired color for received payments */
+  color: #fff;
+}
+
+.paymentbttn2 {
+  background-color:#D0D0D0; /* Change to your desired color for active state */
+  color: #101010;
+  border-radius:15px;
+}
+.paymentbttn {
+  background-color:#D0D0D0; /* Change to your desired color for active state */
+  color: #101010;
+  border-radius:15px;
+}
+
+.paymentbttn.active {
+  background-color:#0080ff; /* Change to your desired color for active state */
+  border-color: #28a745;
+  color: #fff;
+  border-radius:15px;
+}
+
+.paymentbttn2.active {
+  background-color:green; /* Change to your desired color for active state */
+  border-color: #28a745;
+  color: #fff;
+  border-radius:15px;
+}
+.pcard-text-date {
+  font-size: 18px;
+  color: #6c757d; /* Color for "Date:" text */
+}
+
+.pcard-text-date-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2dce89; /* Color for the actual date value */
+}
+
+.pcard-text-date :hover ,
+.pcard-text-amount :hover
+{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pcard-text-amount {
+  font-size: 17px;
+  color: #6c757d; /* Color for "Amount:" text */
+}
+
+.pcard-text-amount-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e44d26; /* Color for the actual amount value */
+}
+
+
+@media (max-width: 768px) {
+.pcard {
+      width: calc(90.33% - 20px);
+       margin-bottom: 20px;
+       box-sizing: border-box;
+       border: 1px solid #ccc;
+       padding: 10px;
+       background-color: #fff;
+       border: 1px solid #dee2e6;
+       border-radius: 8px;
+       transition: box-shadow 0.3s;
+    }
+ }

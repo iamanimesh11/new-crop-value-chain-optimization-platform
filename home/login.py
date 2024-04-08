@@ -54,26 +54,41 @@ def login():
     try:
         cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
         user_data = cursor.fetchone()
+        print(user_data)
 
 
         if user_data and check_password_hash(user_data[3], password):
+
             userid= user_data[0]
             full_name = user_data[1]
             # Store user information in the session
+
             user = User()
+
             user.id = user_data[0]
             user.email = user_data[2]
             user.full_name = user_data[1]
             user.profile = user_data[4]
             login_user(user)
+            print('pa1ss')
 
-            query = "SELECT farmer_id FROM farmers WHERE user_id = %s"
-            cursor.execute(query, (userid,))
-            result = cursor.fetchone()
-            farmer_id = result[0]
-
-            conn.close()
-            return jsonify({'status': 'success', 'message': 'Login successful', 'userid': userid,'farmer_id': farmer_id,'full_name': full_name})
+            if user.profile == "farmer":
+                query = "SELECT farmer_id FROM farmers WHERE user_id = %s"
+                print(userid)
+                cursor.execute(query, (userid,))
+                result = cursor.fetchone()
+                farmer_id = result[0]
+                conn.close()
+                return jsonify({'status': 'success', 'message': 'Login successful', 'userid': userid,'farmer_id': farmer_id,'full_name': full_name})
+            else:
+                query = "SELECT buyer_id FROM buyers WHERE user_id = %s"
+                cursor.execute(query, (userid,))
+                result = cursor.fetchone()
+                buyer_id = result[0]
+                conn.close()
+                return jsonify(
+                    {'status': 'success', 'message': 'Login successful', 'userid': userid, 'buyer_id': buyer_id,
+                     'full_name': full_name})
         else:
             conn.close()
             print(f"Login failed for user {email}")

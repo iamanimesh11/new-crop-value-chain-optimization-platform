@@ -1,0 +1,1050 @@
+
+.navbar-nav .nav-link {
+    padding: 0px 1px; /* Adjust padding as needed */
+}
+.custom-jumbotron {
+        height: 50px; /* Set the desired height in pixels */
+        padding: 10px; /* Adjust padding as needed to control the content placement */
+    }
+/* CSS for circular logo container */
+.circular-logo {
+    width: 100px; /* Adjust the size of the circular container as needed */
+    height: 100px; /* Adjust the size of the circular container as needed */
+    border-radius: 80%; /* Make it a circle */
+    overflow: hidden;
+}
+
+/* CSS for the logo image */
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+/* CSS to decrease the bottom height of the navbar */
+* CSS to decrease the bottom height of the navbar */
+.navbar {
+    padding-top: 0px; /* Adjust the top padding as needed */
+    padding-bottom: 0px; /* Adjust the bottom padding as needed */
+
+}
+
+ .navbar .nav-item {
+            margin-right: 20px;
+            margin-bottom: 10px;/* Add spacing between buttons */
+              box-shadow: 0 50px 305px rgba(0, 0, 0.5, 0.6);
+        }
+
+ .navbar .nav-link {
+            color: white; /* Set text color to white */
+            color: red; /* Text color */
+            font-weight: bold;
+            border-radius: 10px; /* Add rounded corners for button shape */
+            padding: 10px 0px; /* Add padding to increase button size */
+}
+
+.navbar .nav-link:hover {
+      background-color: #D3D3D3; /* Change color on hover */
+      transform: scale(1.05); /* Scale up slightly on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+ }
+
+@media (max-width: 768px) {
+.navbar-toggler {
+            order: -1; /* This moves the toggler to the left side */
+        }
+    /* Background color for mobile screens */
+    .navbar {
+        background-color: blue; /* Replace with your preferred background color */
+    }
+    .navbar-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+        }
+    /* Text color for mobile screens */
+    .navbar-nav .nav-link {
+       background-color : white; /* Replace with your preferred text color */
+    }
+    #navbarNav{
+           background-color : white; /* Replace with your preferred text color */
+
+    }
+    /* Background color for login button on mobile screens */
+    #loginButton {
+        background-color: white; /* Replace with your preferred button color */
+        color: black;
+    }
+      #toggleFormsBtn2 {
+        background-color: #00b300; /* Replace with your preferred button color */
+        color: black;
+         border:  solid #00b300; /* Set the border color for the "Get Started" button */
+
+    }
+.navbar-nav.ml-auto .nav-item {
+       background-color : white; /* Replace with your preferred text color */
+}
+
+.navbar-nav.ml-auto .nav-item2 {
+       background-color : #00b300; /* Replace with your preferred text color */
+}
+
+}
+
+.circular-logo {
+            text-align: center;
+ }
+    }
+}
+.stylish-header {
+    font-family: 'Your Stylish Font', sans-serif;
+    color:#00b300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px 0; /* Adjust the padding to decrease the height of the box */
+    font-size: 1px; /* Choose the desired font size */
+    background-color: transparent !important;
+    text-align:left;
+
+}
+.stylish-header::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 3px;
+    background-color: #ff7c43;
+    margin-top: 1px; /* Adjust the spacing between the header and the underline */
+}
+ #toggleFormsBtn2 {
+        color: #000000; /* Default text color */
+    }
+
+    #toggleFormsBtn2:hover {
+        background-color: #000000; /* Black background color on hover */
+        color: #ffffff; /* White text color on hover */
+    }
+
+
+/* Custom styles for the modal */
+    /* Custom styles for the modal */
+    .custom-modal {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-modal .modal-content {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-modal .modal-header {
+        border-bottom: none;
+    }
+
+    .custom-modal .modal-title {
+        color: #007bff;
+        font-size: 24px;
+    }
+
+    .custom-modal .modal-body {
+        padding: 20px;
+    }
+
+    .custom-modal .form-group {
+        margin-bottom: 20px;
+    }
+
+    .custom-modal .input-group {
+        margin-bottom: 15px;
+    }
+
+    .custom-modal .btn {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .result-message {
+    /* Common styles for both success and error messages */
+    font-weight: bold;
+    padding: 10px;
+}
+
+.success-message {
+    /* Styles for success messages */
+    color: green;
+    background-color: lightgreen;
+}
+
+.error-message {
+    /* Styles for error messages */
+    color: red;
+    background-color: lightcoral;
+}
+.modal-title{
+
+color: blue;
+}
+
+/* Add these styles to your CSS file or style tag */
+.green-text {
+    color: green;
+}
+
+.blue-text {
+    color: black;
+}
+ .visually-hidden {
+                            position: absolute;
+                            width: 1px;
+                            height: 1px;
+                            margin: 50px;
+                            padding: 0;
+                            overflow: hidden;
+                            clip: rect(0, 0, 0, 0);
+                            border: 0;
+                          }
+
+  #loginForm .login-button-container {
+    text-align: right;
+  }
+
+  .forget-link{
+      text-align: left;
+
+  }
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.card-title {
+    background-color: #2ecc71; /* Green background color */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+    .profile-container {
+      max-width: 1200px;
+      margin: 20px auto 50px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .cover-image-container {
+      position: relative;
+    }
+
+.cover-image-container:hover .cover-edit-icon {
+  color: #ff4500; /* Change color on hover */
+  transform: scale(1.2); /* Increase size on hover */
+}
+.cover-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Adjust the alpha value for darkness */
+  opacity: 0; /* Initially transparent */
+  transition: opacity 0.3s; /* Fade effect on hover */
+}
+
+.cover-image-container:hover img.cover-image {
+  opacity: .6; /* Reduce opacity on hover */
+    background: rgba(0, 0, 1, 0.2); /* Adjust the alpha value for darkness */
+
+}
+  .cover-edit-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: green;
+    border-radius: 50%; /* Make it circular */
+  padding: 7px; /* Adjust padding to increase the size */
+
+    background: white; /* Background color */
+
+  cursor: pointer;
+  font-size: 24px;
+  text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.9);
+    transition: color 0.3s, transform 0.3s;
+    }
+
+    .cover-image {
+      width: 100%;
+      object-fit: cover;
+        object-position: center top; /* Adjust the vertical alignment */
+
+      transition: opacity 0.3s; /* Fade effect on hover */
+      height:100px;
+
+    }
+    .profile-image-container {
+      position: relative;
+    }
+    .profile-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0); /* Initially transparent */
+      opacity: 0; /* Set initial opacity to 0 */
+      transition: opacity 0.3s; /* Fade effect on hover */
+    }
+
+.profile-edit-icon {
+  position: absolute;
+  top: 30px; /* Adjust the top position */
+  right: 220px; /* Adjust the right position */
+  color: green;
+    padding: 5px; /* Adjust padding to increase the size */
+
+  cursor: pointer;
+    background: white; /* Background color */
+  border-radius: 50%; /* Make it circular */
+
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+
+ .profile-image-container:hover .profile-edit-icon {
+      color: #ff4500; /* Change color on hover */
+      transform: scale(1.2); /* Increase size on hover */
+    }
+
+    .profile-image-container:hover img.profile-image {
+  opacity: .6; /* Reduce opacity on hover */
+    background: rgba(0, 0, 1, 0.2); /* Adjust the alpha value for darkness */
+
+}
+    .profile-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 80%;
+      object-fit: cover;
+      margin-top: -30px;
+      margin-left: 20px;
+      transform: translate(-10%, -10%);
+      border: 0px solid #1aff1a;
+      transition: opacity 0.3s; /* Fade effect on hover */
+
+    }
+
+    .profile-card {
+      width: 350px;
+      margin-top: 5px;
+      margin-left: -15px;
+    }
+
+    .profile-body,
+    .edit-form-body {
+      padding: 20px;
+    }
+
+    .profile-details h2 {
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    .profile-details p,
+    .edit-form p {
+      color: #6c757d;
+    }
+
+    .social-links {
+      margin-top: 10px;
+    }
+
+    .edit-form {
+      width: 850px; /* Adjust the width */
+      padding: 10px;
+      margin-left:-252px;
+      margin-top:10px;
+
+    }
+
+    @media (max-width: 768px) {
+      .edit-form {
+        width: 100%; /* Adjust the width for larger screens */
+        margin: 0 auto; /* Center the edit profile card */
+      }
+    }
+    .edit-form form {
+      width: 100%;
+    }
+
+    .edit-profile-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+    }
+     .profile-icons {
+      color: #007bff;
+      margin-right: 5px;
+    }
+
+
+    #editProfileBtn{
+  background-color: green;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.form-label {
+  font-weight: bold;
+  color: #007bff;
+}
+#editProfileBtn{
+  margin-bottom: 20px;
+}
+.form-select ,.form-control{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid blue ;
+  border-radius: 5px;
+}
+.edit-form {
+  padding: 25px;
+  border-radius: 10px;
+}
+.completion-text {
+    text-align: left;
+    color: #28a745; /* Green color */
+    font-weight: bold;
+    margin-top: 10px; /* Add margin for spacing */
+  }
+
+  #completionPercentage {
+    display: inline-block; /* Make the span inline-block for proper alignment with text */
+    margin-left: 5px; /* Add margin for spacing between text and percentage */
+  }
+   .progress-container {
+    width: 100%; /* Set width to 100% for responsiveness */
+  }
+
+  .progress-bar {
+    min-width: 20%; /* Set a minimum width to prevent it from being too small on small screens */
+  }
+
+.profile-icons {
+  margin-right: 0.5rem;
+  color: #3498db; /* Change the color as desired */
+}
+
+.card-text.profile-details {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+
+}
+
+.card-text.profile-details i {
+  margin-right: 0.7rem;
+  color:  #007bff; /* Change the color as desired */
+}
+
+.completion-text {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Import the Montserrat font from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+
+.profile-edit-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    color: #fff; /* Text color */
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top:10px;
+    padding: 10px 15px; /* Adjust the padding for background styling */
+    background: linear-gradient(to left, #4e8df5 0%, #488bf5 50%,white 100%); /* Smoother gradient with three color stops */
+    border-radius: 13px; /* Add border radius for rounded corners */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-page-title {
+    font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px 15px;
+    background: conic-gradient(from 45deg at 50% 50%, #3498db 0%, #2ecc71 25%, #e74c3c 50%, #f39c12 75%, #9b59b6 100%);
+      border-radius: 13px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 140px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          margin-top:-25px;
+
+  }
+
+
+@media (max-width: 775.98px) {
+.profile-page-title {
+    margin-left:10px;
+        margin-top:-20px;
+
+
+}}
+
+.contact-us-bar {
+  position: fixed;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  z-index: 99999;
+  bottom: 20px;
+  right: 20px;
+  border-top-right-radius: 24px;
+  border-top-left-radius: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-us-bar:hover {
+  background-color: #4db8ff;
+}
+.email-icon {
+  height: 20px;
+  margin-right: 8px;
+}
+
+.contact-form {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  max-width: 100%;
+}
+
+.contact-form h2 {
+  font-size: 26px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+  background-color: purple;
+}
+/* Existing styles remain unchanged */
+
+.success-message {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #555;
+}
+
+.close-button:hover {
+  color:black;
+}
+.btn-danger.delete{
+margin-left:10px;
+margin-top:5px;
+}
+
+
+/* inventoy card  styles d */
+
+.card-img-top {
+  width: 100%; /* Set the desired width */
+  height: auto; /* Maintain the aspect ratio */
+}
+/* Add a unique class to your inventory management cards */
+.inventory-card {
+  border: none; /* Remove default card border */
+
+}
+
+.inventory-card .card-img-top {
+  border-radius: 8px 8px 0 0; /* Add border radius to the top of the image */
+}
+
+.inventory-card .card-body {
+  padding: 15px; /* Add some padding inside the card body */
+}
+
+.inventory-card .card-title {
+  font-size: 1.2rem; /* Adjust title font size */
+}
+
+.inventory-card .card-text {
+  font-size: 0.9rem; /* Adjust text font size */
+}
+
+.inventory-card .edit-card-button,
+.inventory-card .delete-card-button {
+  font-size: 0.8rem; /* Adjust button font size */
+}
+/* Reduce the margin between the "Edit" button and other elements */
+.inventory-card .edit-card-button,
+.inventory-card .delete-card-button {
+  font-size: 0.9rem; /* Adjust button font size */
+  margin-top: -35px; /* Adjust the margin as needed */
+    padding: 8px 12px; /* Adjust padding to make the button larger */
+      border-radius: 5px; /* Add a slight border-radius to the button */
+        cursor: pointer; /* Change cursor on hover */
+
+
+
+}
+.inventory-card .card-img-top {
+  max-height: 110px; /* Set a maximum height for the image */
+}
+
+.inventory-card .card {
+  margin-bottom: 20px; /* Add margin between cards */
+  max-width: 350px; /* Set maximum width for the card */
+  width: 100%; /* Ensure the card takes the full width within its container */
+}
+.inventory-card .delete-card-button {
+  margin-left: 50px; /* Add margin between the "Edit" and "Delete" buttons */
+}
+/* Style specific card texts */
+.inventory-card .quantity-text {
+  font-weight: bold; /* Make the quantity text bold */
+  color: #007bff; /* Blue color for quantity text */
+  font-size: 1 rem; /* Adjust quantity text font size */
+  margin-bottom: 8px; /* Add some space between the texts */
+  font-family: 'Poppins', sans-serif; /* Use the Poppins font for a modern look */
+}
+
+.inventory-card .price-text {
+  font-weight: bold; /* Make the price text bold */
+  color: #28a745; /* Green color for price text */
+  font-size: 1 rem; /* Adjust price text font size */
+  margin-bottom: 8px; /* Add some space between the texts */
+  font-family: 'Roboto', sans-serif; /* Use the Roboto font for a modern look */
+}
+
+.inventory-card .total-price-text {
+  font-weight: bold; /* Make the total price text bold */
+  color: #ff5c5c; /* Red color for total price text */
+  font-size: 1 rem; /* Adjust total price text font size */
+  margin-bottom: 12px; /* Add some space between the texts */
+  font-family: 'Montserrat', sans-serif; /* Use the Montserrat font for a modern look */
+}
+/* Style specific card texts */
+.inventory-card .label-text {
+  color: #000; /* Black color for label text */
+  font-size: 0.8rem; /* Adjust label text font size */
+  margin-bottom: 5px; /* Add some space between the labels and values */
+}
+ .inventory-edit-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    color: #fff; /* Text color */
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top:10px;
+    padding: 10px 15px; /* Adjust the padding for background styling */
+    background: linear-gradient(to left, #4e8df5 0%, #488bf5 50%,white 100%); /* Smoother gradient with three color stops */
+    border-radius: 13px; /* Add border radius for rounded corners */
+    position: relative;
+    overflow: hidden;
+  }
+/* Ensure at least 2 cards in a row on small screens */
+@media (max-width: 575.98px) {
+  .inventory-card .card {
+    max-width: 250px;
+    max-height :400px;
+  }
+  #editProfileBtn{
+  }
+  .inventory-edit-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #fff; /* Text color */
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-top:10px;
+    padding: 10px 15px; /* Adjust the padding for background styling */
+    background: linear-gradient(to left, #4e8df5 0%, #488bf5 50%,white 100%); /* Smoother gradient with three color stops */
+    border-radius: 13px; /* Add border radius for rounded corners */
+    position: relative;
+    overflow: hidden;
+  }
+.inventory-card .card-body {
+  padding: 15px; /* Add some padding inside the card body */
+      max-height :500px;
+
+}
+  .inventory-card .card-img-top {
+  max-height: 100px; /* Set a maximum height for the image */
+}
+/* Add a unique class to your inventory management cards */
+.inventory-card {
+  max-height: 400px; /* Set a maximum height for the image */
+
+}
+}
+
+
+/* Add this CSS in your style tag or external stylesheet */
+   .switch-container {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 44px;
+    }
+
+    .switch-checkbox {
+      display: none;
+    }
+
+    .switch-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ddd;
+      border-radius: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .switch-label:before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 26px;
+      height: 26px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .switch-checkbox:checked + .switch-label {
+      background-color: #4CAF50; /* Green background when checked */
+    }
+
+    .switch-checkbox:checked + .switch-label:before {
+      transform: translateX(46px);
+    }
+
+    .switch-label:active {
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+    .label-container{
+    width:500px;
+    margin-top:30px;
+     text-shadow: 1px 1px 1px #ddd; /* Add a subtle text shadow for better visibility */
+  color: red; /* Choose a suitable text color */
+  font-size: 18px; /* Adjust the font size */
+  font-family: 'Arial', sans-serif; /* Choose a suitable font */
+
+
+    }
+ #tableView {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  #tableView th,
+  #tableView td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  #tableView thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  #tableView tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  #tableView tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+
+  .action-buttons button {
+    margin-right: 5px;
+  }
+
+  #tableView th,
+  #tableView td {
+    font-size: 19px; /* Adjust the font size as needed */
+        text-align: center; /* Center-align the text */
+
+  }
+  /* Add this to your styles (you can adjust the duration and easing as needed) */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#locationModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: fadeInOut 0.5s ease-out;
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #locationModal p {
+            margin-bottom: 20px;
+        }
+
+        #locationModal button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #locationModal button:hover {
+            background-color: #45a049;
+        }
+
+        @keyframes fadeInOut {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+     .button-container {
+     position: absolute;
+      top: 80px;
+      left: -220px;
+        }
+
+        .profile-button {
+            font-size: 16px;
+            margin-right: 10px;
+            position: relative;
+            margin-bottom: 10px;
+            background-color: transparent; /* Button color */
+            color:black;
+        }
+        .profile-button::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: transparent; /* Initial color of the line */
+            transition: background-color 0.3s ease-in-out;
+        }
+        .profile-button.active::after {
+            background-color: red; /* Color of the line for the active button */
+        }
+
+
+@media (max-width: 768px) {
+ .button-container {
+     position: absolute;
+      top: 80px;
+      left: 30px;
+        }
+           }
+
+
+         #price-range {
+            width: 300px;
+            margin: 20px;
+            background-color:red;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        #amount-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #amount {
+            border: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #slider {
+            margin-top: 15px;
+        }
+
+        #amount-box {
+            display: flex;
+            align-items: center;
+        }
+
+        #min-amount,
+        #max-amount {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        /* Add this style to your existing CSS or in a new style tag */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add this style to hide the spinner initially */
+#spinner {
+  display: none;
+}
+#spinner2 {
+  display: none;
+}
+
+
+/* Li
